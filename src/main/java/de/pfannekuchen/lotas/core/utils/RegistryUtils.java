@@ -34,9 +34,9 @@ public class RegistryUtils {
 		//#endif
 		//#else
 		//#if MC>=11700
-//$$ 		MCVer.stack.mulPose(com.mojang.math.Quaternion.fromXYZ(0, 0, (float) flipOffset));
+		MCVer.stack.mulPose(com.mojang.math.Quaternion.fromXYZ(0, 0, (float) flipOffset));
 		//#else
-		MCVer.rotated(poseStack, flipOffset, 0, 0, 1);
+//$$ 		MCVer.rotated(poseStack, flipOffset, 0, 0, 1);
 		//#endif
 		//#endif
 		
@@ -156,9 +156,9 @@ public class RegistryUtils {
 		//#endif
 		//#else
 		//#if MC>=11700
-//$$ 		MCVer.stack.mulPose(com.mojang.math.Quaternion.fromXYZ(0, 0, (float) -flipOffset));
+		MCVer.stack.mulPose(com.mojang.math.Quaternion.fromXYZ(0, 0, (float) -flipOffset));
 		//#else
-		MCVer.rotated(poseStack, -flipOffset, 0, 0, 1);
+//$$ 		MCVer.rotated(poseStack, -flipOffset, 0, 0, 1);
 		//#endif
 		//#endif
 		
@@ -171,7 +171,7 @@ public class RegistryUtils {
 		//#endif
 		
 		//#if MC<11600
-		MCVer.color4f(255, 255, 255, 255);
+//$$ 		MCVer.color4f(255, 255, 255, 255);
 		//#endif
 	}
 	

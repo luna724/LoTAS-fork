@@ -14,12 +14,12 @@ public interface AccessorButtons {
 //$$ 	public List<net.minecraft.client.gui.components.Renderable> getButtons();
 	//#else
 	//#if MC>=11700
-//$$ 	@Accessor("renderables")
-//$$ 	public List<net.minecraft.client.gui.components.Widget> getButtons();
+	@Accessor("renderables")
+	public List<net.minecraft.client.gui.components.Widget> getButtons();
 	//#else
-	@Accessor
-	public List<net.minecraft.client.gui.components.AbstractWidget> getButtons();
-
+//$$ 	@Accessor
+//$$ 	public List<net.minecraft.client.gui.components.AbstractWidget> getButtons();
+//$$
 	//#endif
 	//#endif
 }

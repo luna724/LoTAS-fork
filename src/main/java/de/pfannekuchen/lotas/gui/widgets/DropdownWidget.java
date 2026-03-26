@@ -36,9 +36,9 @@ public class DropdownWidget<T> extends AbstractWidget {
 
     public DropdownWidget(Font textRenderer, List<T> selections, Function<T, String> nameProvider, int x, int y, int width, int height, String title, Consumer<T> saveHandler) {
     	//#if MC>=11601
-    //$$ 	super(x, y, width, height, MCVer.literal(title));
+    	super(x, y, width, height, MCVer.literal(title));
     	//#else
-    	super(x, y, width, height, title);
+    //$$ 	super(x, y, width, height, title);
     	//#endif
         this.textRenderer = textRenderer;
         this.searchBox = MCVer.EditBox(textRenderer, x, y, width, height, title);
@@ -87,10 +87,10 @@ public class DropdownWidget<T> extends AbstractWidget {
     //$$ renderWidget(stack, mouseX, mouseY, delta);
     //#else
     //#if MC>=11601
-    //$$ @Override public void renderButton(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
-    //$$ 	MCVer.stack = stack;
+    @Override public void renderButton(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
+    	MCVer.stack = stack;
     //#else
-    @Override public void renderButton(int mouseX, int mouseY, float delta) {
+    //$$ @Override public void renderButton(int mouseX, int mouseY, float delta) {
     //#endif
     //#endif
     	//#if MC>=11903
@@ -168,24 +168,24 @@ public class DropdownWidget<T> extends AbstractWidget {
     //$$ @Override public void renderWidget(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float partial) {
     //#endif
     //#else
-    //$$ @Override public void renderBg(com.mojang.blaze3d.vertex.PoseStack stack, Minecraft mc, int mouseX, int mouseY) {
+    @Override public void renderBg(com.mojang.blaze3d.vertex.PoseStack stack, Minecraft mc, int mouseX, int mouseY) {
     //#endif
-    //$$ 	MCVer.stack = stack;
-    //$$ 	if(dropdown.visible) {
+    	MCVer.stack = stack;
+    	if(dropdown.visible) {
     		//#if MC>=11904
     //$$ 		dropdown.renderWidget(stack, mouseX, mouseY, 1f);
     		//#else
-    //$$ 		dropdown.renderButton(stack, mouseX, mouseY, 1f);
+    		dropdown.renderButton(stack, mouseX, mouseY, 1f);
     		//#endif
-    //$$     }
-    //$$ }
-    //#else
-    @Override public void renderBg(Minecraft mc, int mouseX, int mouseY) {
-    	if(dropdown.visible) {
-    		dropdown.render(mouseX, mouseY, 1f);    
-    		dropdown.renderButton(mouseX, mouseY, 1f);
         }
     }
+    //#else
+    //$$ @Override public void renderBg(Minecraft mc, int mouseX, int mouseY) {
+    //$$ 	if(dropdown.visible) {
+    //$$ 		dropdown.render(mouseX, mouseY, 1f);    
+    //$$ 		dropdown.renderButton(mouseX, mouseY, 1f);
+    //$$     }
+    //$$ }
     //#endif
 
     /**
@@ -357,9 +357,9 @@ public class DropdownWidget<T> extends AbstractWidget {
 
         public DropdownListWidget(List<T> selections, Function<T, String> nameProvider, Consumer<T> saveHandler, int x, int y, int width, int height, String message) {
         	//#if MC>=11601
-        //$$ 	super(x, y, width, height, MCVer.literal(message));
+        	super(x, y, width, height, MCVer.literal(message));
         	//#else
-        	super(x, y, width, height, message);
+        //$$ 	super(x, y, width, height, message);
         	//#endif
         	this.selections = selections;
             this.nameProvider = nameProvider;
@@ -427,11 +427,11 @@ public class DropdownWidget<T> extends AbstractWidget {
         //$$ @Override public void renderWidget(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
         //#endif
         //#else
-        //$$ @Override public void renderButton(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
+        @Override public void renderButton(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
         //#endif
-        //$$ 	MCVer.stack = stack;
+        	MCVer.stack = stack;
         //#else
-        @Override public void renderButton(int mouseX, int mouseY, float delta) {
+        //$$ @Override public void renderButton(int mouseX, int mouseY, float delta) {
         //#endif
             Font textRenderer = DropdownWidget.this.textRenderer;
             int lineHeight = getLineHeight(textRenderer);
@@ -587,9 +587,9 @@ public class DropdownWidget<T> extends AbstractWidget {
 //$$         }
 //#else
 //#if MC>=11700
-//$$ 		@Override
-//$$ 		public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
-//$$ 		}
+		@Override
+		public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
+		}
 //#endif
 //#endif
 
@@ -600,9 +600,9 @@ public class DropdownWidget<T> extends AbstractWidget {
 //$$     }
 //#else
 //#if MC>=11700
-//$$ 	@Override
-//$$ 	public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
-//$$ 	}
+	@Override
+	public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
+	}
 //#endif
 //#endif
 

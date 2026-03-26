@@ -270,9 +270,9 @@ public class InfoHud extends Screen {
 				if (mc.screen == this)
 					return I18n.get("infohud.lotas.chunkpos");//"Chunk Position"
 				//#if MC>=11700
-//$$ 				return String.format("%d %d", mc.player.chunkPosition().getRegionLocalX(), mc.player.chunkPosition().getRegionLocalZ());
+				return String.format("%d %d", mc.player.chunkPosition().getRegionLocalX(), mc.player.chunkPosition().getRegionLocalZ());
 				//#else
-				return String.format("%d %d %d", mc.player.xChunk, mc.player.yChunk, mc.player.zChunk);
+//$$ 				return String.format("%d %d %d", mc.player.xChunk, mc.player.yChunk, mc.player.zChunk);
 				//#endif
 			}));
 			y += 14;
@@ -335,9 +335,9 @@ public class InfoHud extends Screen {
 				double distTraveledLastTickX = MCVer.getX(mc.player) - mc.player.xOld;
 				double distTraveledLastTickZ = MCVer.getZ(mc.player) - mc.player.zOld;
 				//#if MC>=11700
-//$$ 				return String.format("%.2f", Mth.sqrt((float) (distTraveledLastTickX * distTraveledLastTickX + distTraveledLastTickZ * distTraveledLastTickZ)) / 0.05F) + I18n.get("infohud.lotas.bps.2");//" blocks/sec"
+				return String.format("%.2f", Mth.sqrt((float) (distTraveledLastTickX * distTraveledLastTickX + distTraveledLastTickZ * distTraveledLastTickZ)) / 0.05F) + I18n.get("infohud.lotas.bps.2");//" blocks/sec"
 				//#else
-				return String.format("%.2f", Mth.sqrt((distTraveledLastTickX * distTraveledLastTickX + distTraveledLastTickZ * distTraveledLastTickZ)) / 0.05F) + I18n.get("infohud.lotas.bps.2");//" blocks/sec"
+//$$ 				return String.format("%.2f", Mth.sqrt((distTraveledLastTickX * distTraveledLastTickX + distTraveledLastTickZ * distTraveledLastTickZ)) / 0.05F) + I18n.get("infohud.lotas.bps.2");//" blocks/sec"
 				//#endif
 			}));
 			y += 14;
@@ -379,10 +379,10 @@ public class InfoHud extends Screen {
 					//#if MC>=12001
 //$$ 					MCVer.pushMatrix(MCVer.stack.pose());
 					//#else
-//$$ 					MCVer.pushMatrix(MCVer.stack);
+					MCVer.pushMatrix(MCVer.stack);
 					//#endif
 					//#else
-					MCVer.pushMatrix(null);
+//$$ 					MCVer.pushMatrix(null);
 					//#endif
 		         	GL11.glEnable(GL11.GL_BLEND);
 		         	GL11.glBlendFunc(770, 771);
@@ -392,10 +392,10 @@ public class InfoHud extends Screen {
 		    		//#if MC>=12001
 //$$ 					MCVer.popMatrix(MCVer.stack.pose());
 					//#else
-//$$ 					MCVer.popMatrix(MCVer.stack);
+					MCVer.popMatrix(MCVer.stack);
 					//#endif
 					//#else
-					MCVer.popMatrix(null);
+//$$ 					MCVer.popMatrix(null);
 					//#endif
 				}
 			}

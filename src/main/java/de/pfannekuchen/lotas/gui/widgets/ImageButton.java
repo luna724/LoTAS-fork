@@ -19,9 +19,9 @@ public class ImageButton extends Button {
 //$$ 		super(x, y, 20, 20, MCVer.literal(""), action, DEFAULT_NARRATION);
 		//#else
 		//#if MC>=11601
-//$$ 		super(x, y, 20, 20, MCVer.literal(""), action);
+		super(x, y, 20, 20, MCVer.literal(""), action);
 		//#else
-		super(x, y, 20, 20, "", action);
+//$$ 		super(x, y, 20, 20, "", action);
 		//#endif
 		//#endif
 		this.pic = pic;
@@ -45,12 +45,12 @@ public class ImageButton extends Button {
 //$$ 		super.render(poseStack, i, j, f);
 	//#else
 	//#if MC>=11601
-//$$ 	public void renderButton(com.mojang.blaze3d.vertex.PoseStack matrices, int mouseX, int mouseY, float delta) {
-//$$ 		super.renderButton(matrices, mouseX, mouseY, delta);
-//$$ 		MCVer.stack = matrices;
+	public void renderButton(com.mojang.blaze3d.vertex.PoseStack matrices, int mouseX, int mouseY, float delta) {
+		super.renderButton(matrices, mouseX, mouseY, delta);
+		MCVer.stack = matrices;
 	//#else
-	public void renderButton(int mouseX, int mouseY, float delta) {
-		super.renderButton(mouseX, mouseY, delta);
+//$$ 	public void renderButton(int mouseX, int mouseY, float delta) {
+//$$ 		super.renderButton(mouseX, mouseY, delta);
 	//#endif
 	//#endif
 		MCVer.bind(Minecraft.getInstance().getTextureManager(), pic);

@@ -41,10 +41,10 @@ public class ConfigurationScreen extends Screen {
 		
 		
 		//#if MC>=11700
-//$$ 		clearWidgets();
+		clearWidgets();
 		//#else
-		buttons.clear();
-		children.clear();
+//$$ 		buttons.clear();
+//$$ 		children.clear();
 		//#endif
 		int y = 25;
 		int i = 0;
@@ -198,11 +198,11 @@ public class ConfigurationScreen extends Screen {
 	//#if MC>=12000
 //$$ 	@Override public void render(net.minecraft.client.gui.GuiGraphics stack, int mouseX, int mouseY, float delta) {
 	//#else
-//$$ 	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
+	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
 	//#endif
-//$$ 		MCVer.stack = stack;
+		MCVer.stack = stack;
 	//#else
-	@Override public void render(int mouseX, int mouseY, float delta) {
+//$$ 	@Override public void render(int mouseX, int mouseY, float delta) {
 	//#endif
 		MCVer.renderBackground(this);
 		MCVer.drawCenteredString(this, "Configuration Menu", width / 2, 5, 0xFFFFFFFF);

@@ -36,10 +36,10 @@ public class EntitySliderWidget extends AbstractWidget {
 		//#if MC>=11900
 //$$ 		super(xPos, yPos, width, height, net.minecraft.network.chat.Component.empty());
 		//#else
-//$$ 		super(xPos, yPos, width, height, net.minecraft.network.chat.TextComponent.EMPTY);
+		super(xPos, yPos, width, height, net.minecraft.network.chat.TextComponent.EMPTY);
 		//#endif
 		//#else
-		super(xPos, yPos, width, height, "");
+//$$ 		super(xPos, yPos, width, height, "");
 		//#endif
 		this.name = "Entity";
 		this.entities = ent;
@@ -94,11 +94,11 @@ public class EntitySliderWidget extends AbstractWidget {
 //$$ 		Minecraft client = Minecraft.getInstance();
 //$$ 		renderButton(stack, x, y, partial);
 	//#else
-//$$ 	@Override protected void renderBg(com.mojang.blaze3d.vertex.PoseStack stack, Minecraft client, int mouseX, int mouseY) {
+	@Override protected void renderBg(com.mojang.blaze3d.vertex.PoseStack stack, Minecraft client, int mouseX, int mouseY) {
 	//#endif
-//$$ 		MCVer.stack = stack;
+		MCVer.stack = stack;
 	//#else
-	@Override protected void renderBg(Minecraft client, int mouseX, int mouseY) {
+//$$ 	@Override protected void renderBg(Minecraft client, int mouseX, int mouseY) {
 	//#endif
 		MCVer.bind(client.getTextureManager(), WIDGETS_LOCATION);
 		MCVer.color4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -215,9 +215,9 @@ public class EntitySliderWidget extends AbstractWidget {
 //$$ 	}
 	//#else
 	//#if MC>=11700
-//$$ 	@Override
-//$$ 	public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
-//$$ 	}
+	@Override
+	public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
+	}
 	//#endif
 	//#endif
 

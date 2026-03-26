@@ -23,9 +23,9 @@ public class DrownedDropManipulation extends DropManipulationScreen.DropManipula
 		DrownedDropManipulation.drops.setToggled(!DrownedDropManipulation.drops.isToggled());
 	}, 
 	//#if MC>=11700
-//$$ 	new ResourceLocation("lotas", "drops/copper.png"));
+	new ResourceLocation("lotas", "drops/copper.png"));
 	//#else
-	new ResourceLocation("lotas", "drops/gold.png"));
+//$$ 	new ResourceLocation("lotas", "drops/gold.png"));
 	//#endif
 
 	public DrownedDropManipulation(int x, int y, int width, int height) {
@@ -54,9 +54,9 @@ public class DrownedDropManipulation extends DropManipulationScreen.DropManipula
 
 			if (drops.isToggled())
 				//#if MC>=11700
-//$$ 				list.add(new ItemStack(Items.COPPER_INGOT));
+				list.add(new ItemStack(Items.COPPER_INGOT));
 				//#else
-				list.add(new ItemStack(Items.GOLD_INGOT));
+//$$ 				list.add(new ItemStack(Items.GOLD_INGOT));
 				//#endif
 		}
 		return list;
@@ -94,11 +94,11 @@ public class DrownedDropManipulation extends DropManipulationScreen.DropManipula
 			String drowned = I18n.get("dropmanipgui.lotas.entity.drowned.drowned");//"Drowned drop:"
 			String rottenFlesh = I18n.get("dropmanipgui.lotas.entity.drowned.rottenflesh");//" 2 Rotten Flesh"
 			//#if MC>=11700
-//$$ 			String copper = I18n.get("dropmanipgui.lotas.entity.drowned.copper");//", 1 Copper Ingot"
-//$$ 			MCVer.drawShadow(drowned+rottenFlesh + (drops.isToggled() ? copper : ""), x, y + 64, 0xFFFFFF);
+			String copper = I18n.get("dropmanipgui.lotas.entity.drowned.copper");//", 1 Copper Ingot"
+			MCVer.drawShadow(drowned+rottenFlesh + (drops.isToggled() ? copper : ""), x, y + 64, 0xFFFFFF);
 			//#else
-			String gold = I18n.get("dropmanipgui.lotas.entity.drowned.gold");//", 1 Gold Ingot"
-			MCVer.drawShadow(drowned+rottenFlesh + (drops.isToggled() ? gold : ""), x, y + 64, 0xFFFFFF);
+//$$ 			String gold = I18n.get("dropmanipgui.lotas.entity.drowned.gold");//", 1 Gold Ingot"
+//$$ 			MCVer.drawShadow(drowned+rottenFlesh + (drops.isToggled() ? gold : ""), x, y + 64, 0xFFFFFF);
 			//#endif
 			MCVer.render(drops, mouseX, mouseY, delta);
 		}

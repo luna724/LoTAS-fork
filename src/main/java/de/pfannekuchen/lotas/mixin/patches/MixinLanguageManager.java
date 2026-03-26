@@ -15,8 +15,8 @@ import net.minecraft.client.resources.language.LanguageManager;
 public class MixinLanguageManager {
 	
 	//#if MC<11601
-	@Shadow @org.spongepowered.asm.mixin.Final
-	private static net.minecraft.client.resources.language.Locale LOCALE;
+//$$ 	@Shadow @org.spongepowered.asm.mixin.Final
+//$$ 	private static net.minecraft.client.resources.language.Locale LOCALE;
 	//#endif
 	
 	
@@ -30,16 +30,16 @@ public class MixinLanguageManager {
 	}
 	
 	//#if MC>=11601
-//$$ 	@ModifyArg(method = "onResourceManagerReload", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/resources/language/I18n;setLanguage(Lnet/minecraft/locale/Language;)V"), index = 0)
-//$$ 	public net.minecraft.locale.Language inject_onResourceManagerReload(net.minecraft.locale.Language clientLanguage) {
-//$$  		LoTASModContainer.languageManager.reload((net.minecraft.client.resources.language.ClientLanguage) clientLanguage);
-//$$  		return clientLanguage;
-//$$ 	}
-	//#else
-	@Inject(method = "onResourceManagerReload", at = @At(value = "RETURN"))
-	public void inject_onResourceManagerReload(CallbackInfo ci) {
-		LoTASModContainer.languageManager.reload(LOCALE);
+	@ModifyArg(method = "onResourceManagerReload", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/resources/language/I18n;setLanguage(Lnet/minecraft/locale/Language;)V"), index = 0)
+	public net.minecraft.locale.Language inject_onResourceManagerReload(net.minecraft.locale.Language clientLanguage) {
+ 		LoTASModContainer.languageManager.reload((net.minecraft.client.resources.language.ClientLanguage) clientLanguage);
+ 		return clientLanguage;
 	}
+	//#else
+//$$ 	@Inject(method = "onResourceManagerReload", at = @At(value = "RETURN"))
+//$$ 	public void inject_onResourceManagerReload(CallbackInfo ci) {
+//$$ 		LoTASModContainer.languageManager.reload(LOCALE);
+//$$ 	}
 	//#endif
 	
 	

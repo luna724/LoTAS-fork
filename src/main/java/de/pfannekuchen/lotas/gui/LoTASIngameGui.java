@@ -289,9 +289,9 @@ public class LoTASIngameGui {
 //$$ 		tickDisplayButton.setMessage(net.minecraft.network.chat.Component.literal(color + TickrateChangerMod.ticks[TickrateChangerMod.ji] + "t"));
 		//#else
 		//#if MC>=11601
-//$$ 		tickDisplayButton.setMessage(new net.minecraft.network.chat.TextComponent(color + TickrateChangerMod.ticks[TickrateChangerMod.ji] + "t"));
+		tickDisplayButton.setMessage(new net.minecraft.network.chat.TextComponent(color + TickrateChangerMod.ticks[TickrateChangerMod.ji] + "t"));
 		//#else
-		tickDisplayButton.setMessage(color + TickrateChangerMod.ticks[TickrateChangerMod.ji] + "t");
+//$$ 		tickDisplayButton.setMessage(color + TickrateChangerMod.ticks[TickrateChangerMod.ji] + "t");
 		//#endif
 		//#endif
 

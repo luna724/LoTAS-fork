@@ -123,11 +123,11 @@ public class AIManipulationScreen extends Screen {
 	//#if MC>=12000
 //$$ 	@Override public void render(net.minecraft.client.gui.GuiGraphics stack, int mouseX, int mouseY, float partialTicks) {
 	//#else
-//$$ 	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float partialTicks) {
+	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float partialTicks) {
 	//#endif
-//$$ 		MCVer.stack = stack;
+		MCVer.stack = stack;
 	//#else
-	@Override public void render(int mouseX, int mouseY, float partialTicks) {
+//$$ 	@Override public void render(int mouseX, int mouseY, float partialTicks) {
 	//#endif
 		for(int k = 0; k < MCVer.getButtonSize(this); ++k) {
 			MCVer.render(((AbstractWidget)MCVer.getButton(this, k)), mouseX, mouseY, partialTicks);

@@ -26,13 +26,13 @@ public class MixinOverlayEvent {
 //$$ 	@Inject(at = @At(value = "INVOKE", shift = At.Shift.AFTER, target = "Lnet/minecraft/client/gui/Gui;renderEffects(Lnet/minecraft/client/gui/GuiGraphics;)V"), method = "render")
 //$$ 	public void injectrender(net.minecraft.client.gui.GuiGraphics stack, float tickDelta, CallbackInfo ci) {
 	//#else
-//$$ 	@Inject(at = @At(value = "INVOKE", shift = At.Shift.AFTER, target = "Lnet/minecraft/client/gui/Gui;renderEffects(Lcom/mojang/blaze3d/vertex/PoseStack;)V"), method = "render")
-//$$ 	public void injectrender(com.mojang.blaze3d.vertex.PoseStack stack, float tickDelta, CallbackInfo ci) {
+	@Inject(at = @At(value = "INVOKE", shift = At.Shift.AFTER, target = "Lnet/minecraft/client/gui/Gui;renderEffects(Lcom/mojang/blaze3d/vertex/PoseStack;)V"), method = "render")
+	public void injectrender(com.mojang.blaze3d.vertex.PoseStack stack, float tickDelta, CallbackInfo ci) {
 	//#endif
-//$$ 		MCVer.stack = stack;
+		MCVer.stack = stack;
 	//#else
-	@Inject(at = @At(value = "INVOKE", shift = At.Shift.AFTER, target = "Lnet/minecraft/client/gui/Gui;renderEffects()V"), method = "render")
-	public void injectrender(float tickDelta, CallbackInfo ci) {
+//$$ 	@Inject(at = @At(value = "INVOKE", shift = At.Shift.AFTER, target = "Lnet/minecraft/client/gui/Gui;renderEffects()V"), method = "render")
+//$$ 	public void injectrender(float tickDelta, CallbackInfo ci) {
 	//#endif
 		LoTASModContainer.hud.drawHud();
 		if (ConfigUtils.getBoolean("tools", "showTickIndicator") && TickrateChangerMod.tickrate <= 5F && TickrateChangerMod.show) {

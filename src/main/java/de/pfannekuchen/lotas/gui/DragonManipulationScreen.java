@@ -73,9 +73,9 @@ public class DragonManipulationScreen extends Screen {
 
 	public String getButtonMessage(Button btn) {
 		//#if MC>=11601
-//$$ 		return btn.getMessage().getString();
+		return btn.getMessage().getString();
 		//#else
-		return btn.getMessage();
+//$$ 		return btn.getMessage();
 		//#endif
 	}
 	
@@ -158,11 +158,11 @@ public class DragonManipulationScreen extends Screen {
 	//#if MC>=12000
 //$$ 	@Override public void render(net.minecraft.client.gui.GuiGraphics stack, int mouseX, int mouseY, float partialTicks) {
 	//#else
-//$$  	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float partialTicks) {
+ 	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float partialTicks) {
 		//#endif
-//$$ 	MCVer.stack = stack;
+	MCVer.stack = stack;
 	//#else
-	@Override public void render(int mouseX, int mouseY, float partialTicks) {
+//$$ 	@Override public void render(int mouseX, int mouseY, float partialTicks) {
 	//#endif
 		MCVer.renderBackground(this);
 		MCVer.enableTexture();

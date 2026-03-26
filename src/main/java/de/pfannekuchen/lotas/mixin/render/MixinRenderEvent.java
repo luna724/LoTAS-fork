@@ -29,14 +29,14 @@ public class MixinRenderEvent {
 
 	@Inject(at = @At("HEAD"), method = "renderItemInHand")
 	//#if MC>=11700
-//$$ 	public void renderWorldLastEvent(com.mojang.blaze3d.vertex.PoseStack poseStack, Camera camera, float f, CallbackInfo ci) {
+	public void renderWorldLastEvent(com.mojang.blaze3d.vertex.PoseStack poseStack, Camera camera, float f, CallbackInfo ci) {
 	//#else
-	public void renderWorldLastEvent(CallbackInfo ci) {
+//$$ 	public void renderWorldLastEvent(CallbackInfo ci) {
 	//#endif
 		Minecraft mc=Minecraft.getInstance();
 		final Screen gui = mc.screen;
 		//#if MC<=11605
-		Object poseStack=null;
+//$$ 		Object poseStack=null;
 		//#endif
 		if (gui instanceof SpawnManipulationScreen) {
 			MCVer.pushMatrix(poseStack);

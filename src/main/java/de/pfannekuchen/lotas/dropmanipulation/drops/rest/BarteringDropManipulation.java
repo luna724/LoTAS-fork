@@ -51,11 +51,11 @@ public class BarteringDropManipulation extends DropManipulationScreen.DropManipu
 		Gravel(I18n.get("dropmanipgui.lotas.entity.bartering.gravel")),//"Gravel"
 		Glowstone_Dust(I18n.get("dropmanipgui.lotas.entity.bartering.glowstonedust")),//"Glowstone Dust"
 		//#if MC>=11602
-//$$ 		Water_Bottle(I18n.get("dropmanipgui.lotas.entity.bartering.waterbottle")),//"Water Bottle"
-//$$ 		Spectral_Arrow(I18n.get("dropmanipgui.lotas.entity.bartering.spectralarrow")),//"Spectral Arrow"
-//$$ 		Blackstone(I18n.get("dropmanipgui.lotas.entity.bartering.blackstone"));//"Blackstone"
+		Water_Bottle(I18n.get("dropmanipgui.lotas.entity.bartering.waterbottle")),//"Water Bottle"
+		Spectral_Arrow(I18n.get("dropmanipgui.lotas.entity.bartering.spectralarrow")),//"Spectral Arrow"
+		Blackstone(I18n.get("dropmanipgui.lotas.entity.bartering.blackstone"));//"Blackstone"
 		//#else
-		Magma_Cream(I18n.get("dropmanipgui.lotas.entity.bartering.magmacream"));//"Magma Cream"
+//$$ 		Magma_Cream(I18n.get("dropmanipgui.lotas.entity.bartering.magmacream"));//"Magma Cream"
 		//#endif
 		private String name;
 
@@ -90,15 +90,15 @@ public class BarteringDropManipulation extends DropManipulationScreen.DropManipu
 	@Override
 	public List<ItemStack> redirectDrops(Entity entity, int lootingBonus) {
 		//#if MC>=11601
-//$$ 		if (entity == null) {
+		if (entity == null) {
 			//#if MC>=11605
-//$$ 			int quartz=12;
-//$$ 			int soulsand=8;
-//$$ 			int string=9;
-//$$ 			int pearl=4;
-//$$ 			int netherbrick=8;
-//$$ 			int firecharge=1;
-//$$ 			int leather=4;
+			int quartz=12;
+			int soulsand=8;
+			int string=9;
+			int pearl=4;
+			int netherbrick=8;
+			int firecharge=1;
+			int leather=4;
 			//#else
 //$$ 			int quartz=16;
 //$$ 			int soulsand=16;
@@ -108,45 +108,45 @@ public class BarteringDropManipulation extends DropManipulationScreen.DropManipu
 //$$ 			int firecharge=5;
 //$$ 			int leather=10;
 			//#endif
-//$$ 			switch (f) {
-//$$ 				case Soul_Speed_Boots: return ImmutableList.of(soulspeed(new ItemStack(net.minecraft.world.item.Items.IRON_BOOTS)));
-//$$ 				case Soul_Speed_Book: return ImmutableList.of();
-//$$ 				case Splash_Potion_of_Fire_Resistance: return ImmutableList.of(net.minecraft.world.item.alchemy.PotionUtils.setPotion(new ItemStack(net.minecraft.world.item.Items.SPLASH_POTION), net.minecraft.world.item.alchemy.Potions.FIRE_RESISTANCE));
-//$$ 				case Potion_of_Fire_Resistance: return ImmutableList.of(net.minecraft.world.item.alchemy.PotionUtils.setPotion(new ItemStack(net.minecraft.world.item.Items.POTION), net.minecraft.world.item.alchemy.Potions.FIRE_RESISTANCE));
-//$$ 				case Iron_Nugget: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.IRON_NUGGET, 36));
-//$$ 				case Ender_Pearl: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.ENDER_PEARL, pearl));
-//$$ 				case StringItem: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.STRING, string));
-//$$ 				case Nether_Quartz: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.QUARTZ, quartz));
-//$$ 				case Obsidian: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.OBSIDIAN, 1));
-//$$ 				case Crying_Obsidian: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.CRYING_OBSIDIAN, 3));
-//$$ 				case Fire_Charge: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.FIRE_CHARGE, firecharge));
-//$$ 				case Leather: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.LEATHER, leather));
-//$$ 				case Soul_Sand: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.SOUL_SAND, soulsand));
-//$$ 				case Nether_Brick: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.NETHER_BRICK, netherbrick));
-//$$ 				case Arrow: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.ARROW, 12));
-//$$ 				case Gravel: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.GRAVEL, 16));
-//$$ 				case Glowstone_Dust: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.GLOWSTONE_DUST, 12));
+			switch (f) {
+				case Soul_Speed_Boots: return ImmutableList.of(soulspeed(new ItemStack(net.minecraft.world.item.Items.IRON_BOOTS)));
+				case Soul_Speed_Book: return ImmutableList.of();
+				case Splash_Potion_of_Fire_Resistance: return ImmutableList.of(net.minecraft.world.item.alchemy.PotionUtils.setPotion(new ItemStack(net.minecraft.world.item.Items.SPLASH_POTION), net.minecraft.world.item.alchemy.Potions.FIRE_RESISTANCE));
+				case Potion_of_Fire_Resistance: return ImmutableList.of(net.minecraft.world.item.alchemy.PotionUtils.setPotion(new ItemStack(net.minecraft.world.item.Items.POTION), net.minecraft.world.item.alchemy.Potions.FIRE_RESISTANCE));
+				case Iron_Nugget: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.IRON_NUGGET, 36));
+				case Ender_Pearl: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.ENDER_PEARL, pearl));
+				case StringItem: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.STRING, string));
+				case Nether_Quartz: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.QUARTZ, quartz));
+				case Obsidian: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.OBSIDIAN, 1));
+				case Crying_Obsidian: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.CRYING_OBSIDIAN, 3));
+				case Fire_Charge: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.FIRE_CHARGE, firecharge));
+				case Leather: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.LEATHER, leather));
+				case Soul_Sand: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.SOUL_SAND, soulsand));
+				case Nether_Brick: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.NETHER_BRICK, netherbrick));
+				case Arrow: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.ARROW, 12));
+				case Gravel: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.GRAVEL, 16));
+				case Glowstone_Dust: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.GLOWSTONE_DUST, 12));
 				//#if MC>=11602
-//$$ 				case Water_Bottle: return ImmutableList.of(net.minecraft.world.item.alchemy.PotionUtils.setPotion(new ItemStack(net.minecraft.world.item.Items.POTION), net.minecraft.world.item.alchemy.Potions.WATER));
-//$$ 				case Spectral_Arrow: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.SPECTRAL_ARROW, 16));
-//$$ 				case Blackstone: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.BLACKSTONE, 16));
+				case Water_Bottle: return ImmutableList.of(net.minecraft.world.item.alchemy.PotionUtils.setPotion(new ItemStack(net.minecraft.world.item.Items.POTION), net.minecraft.world.item.alchemy.Potions.WATER));
+				case Spectral_Arrow: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.SPECTRAL_ARROW, 16));
+				case Blackstone: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.BLACKSTONE, 16));
 				//#else
 //$$ 				case Magma_Cream: return ImmutableList.of(new ItemStack(net.minecraft.world.item.Items.MAGMA_CREAM, 6));
 				//#endif
-//$$ 				default: return ImmutableList.of();
-//$$ 			}
-//$$ 		}
-//$$ 		return ImmutableList.of();
-		//#else
+				default: return ImmutableList.of();
+			}
+		}
 		return ImmutableList.of();
+		//#else
+//$$ 		return ImmutableList.of();
 		//#endif
 	}
 
 	//#if MC>=11601
-//$$ 	private ItemStack soulspeed(ItemStack itemStack) {
-//$$ 		itemStack.enchant(net.minecraft.world.item.enchantment.Enchantments.SOUL_SPEED, 3);
-//$$ 		return itemStack;
-//$$ 	}
+	private ItemStack soulspeed(ItemStack itemStack) {
+		itemStack.enchant(net.minecraft.world.item.enchantment.Enchantments.SOUL_SPEED, 3);
+		return itemStack;
+	}
 	//#endif
 	
 	@Override
@@ -197,29 +197,29 @@ public class BarteringDropManipulation extends DropManipulationScreen.DropManipu
 			//#if MC>=12000
 //$$ 			MCVer.pushMatrix(MCVer.stack.pose());
 			//#else
-//$$ 			MCVer.pushMatrix(MCVer.stack);
+			MCVer.pushMatrix(MCVer.stack);
 			//#endif
 			//#else
-			MCVer.pushMatrix(null);
+//$$ 			MCVer.pushMatrix(null);
 			//#endif
 			MCVer.render(elementwidgets, mouseX, mouseY, delta);
 			//#if MC>=11904
 //$$ 			elementwidgets.render(MCVer.stack, mouseX, mouseY, delta);
 			//#else
 			//#if MC>=11601
-//$$ 			elementwidgets.renderBg(MCVer.stack, Minecraft.getInstance(), mouseX, mouseY);
+			elementwidgets.renderBg(MCVer.stack, Minecraft.getInstance(), mouseX, mouseY);
 			//#else
-			elementwidgets.renderBg(Minecraft.getInstance(), mouseX, mouseY);
+//$$ 			elementwidgets.renderBg(Minecraft.getInstance(), mouseX, mouseY);
 			//#endif
 			//#endif
 			//#if MC>=11700
 			//#if MC>=12000
 //$$ 			MCVer.popMatrix(MCVer.stack.pose());
 			//#else
-//$$ 			MCVer.popMatrix(MCVer.stack);
+			MCVer.popMatrix(MCVer.stack);
 			//#endif
 			//#else
-			MCVer.popMatrix(null);
+//$$ 			MCVer.popMatrix(null);
 			//#endif
 		}
 		

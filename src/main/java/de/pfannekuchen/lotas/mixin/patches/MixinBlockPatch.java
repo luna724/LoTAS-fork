@@ -18,9 +18,9 @@ import de.pfannekuchen.lotas.gui.DropManipulationScreen;
  * @version v1.1
  */
 //#if MC>=11600
-//$$ @Mixin(net.minecraft.world.level.block.state.BlockBehaviour.class)
+@Mixin(net.minecraft.world.level.block.state.BlockBehaviour.class)
 //#else
-@Mixin(net.minecraft.world.level.block.Block.class)
+//$$ @Mixin(net.minecraft.world.level.block.Block.class)
 //#endif
 public class MixinBlockPatch {
 //#if MC<12000

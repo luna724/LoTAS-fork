@@ -25,9 +25,9 @@ public class SmallCheckboxWidget extends AbstractButton {
 
 	public SmallCheckboxWidget(int x, int y, String message, boolean checked) {
 		//#if MC>=11601
-//$$ 		super(x, y, 11, 11, MCVer.literal(message));
+		super(x, y, 11, 11, MCVer.literal(message));
 		//#else
-		super(x, y, 11, 11, message);
+//$$ 		super(x, y, 11, 11, message);
 		//#endif
 		this.checked = checked;
 	}
@@ -85,20 +85,20 @@ public class SmallCheckboxWidget extends AbstractButton {
 //$$ 	}
 	//#else
 	//#if MC>=11601
-//$$ 	@Override public void renderButton(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
-//$$ 		MCVer.stack = stack;
+	@Override public void renderButton(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
+		MCVer.stack = stack;
 	//#else
-	@Override public void renderButton(int mouseX, int mouseY, float delta) {
+//$$ 	@Override public void renderButton(int mouseX, int mouseY, float delta) {
 	//#endif
 		Minecraft minecraftClient = Minecraft.getInstance();
 		MCVer.bind(minecraftClient.getTextureManager(), TEXTURE);
 		MCVer.blit(this.x, this.y, 0.0F, 0.0F, 11, this.height, 11, 11);
 		//#if MC>=11601
-//$$ 		this.renderBg(MCVer.stack, minecraftClient, mouseX, mouseY);
-//$$ 		MCVer.drawShadow(this.getMessage().getString(), this.x + 16, this.y + (this.height - 8) / 2, 14737632 | Mth.ceil(this.alpha * 255.0F) << 24);
+		this.renderBg(MCVer.stack, minecraftClient, mouseX, mouseY);
+		MCVer.drawShadow(this.getMessage().getString(), this.x + 16, this.y + (this.height - 8) / 2, 14737632 | Mth.ceil(this.alpha * 255.0F) << 24);
 		//#else
-		this.renderBg(minecraftClient, mouseX, mouseY);
-		drawString(minecraftClient.font, this.getMessage(), this.x + 16, this.y + (this.height - 8) / 2, 14737632 | Mth.ceil(this.alpha * 255.0F) << 24);
+//$$ 		this.renderBg(minecraftClient, mouseX, mouseY);
+//$$ 		drawString(minecraftClient.font, this.getMessage(), this.x + 16, this.y + (this.height - 8) / 2, 14737632 | Mth.ceil(this.alpha * 255.0F) << 24);
 		//#endif
 		if (isChecked()) {
 			MCVer.disableDepthTest();
@@ -118,10 +118,10 @@ public class SmallCheckboxWidget extends AbstractButton {
 //$$ 	}
 	//#else
 	//#if MC>=11700
-//$$ 	@Override
-//$$ 	public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
-//$$
-//$$ 	}
+	@Override
+	public void updateNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
+
+	}
 	//#endif
 	//#endif
 	

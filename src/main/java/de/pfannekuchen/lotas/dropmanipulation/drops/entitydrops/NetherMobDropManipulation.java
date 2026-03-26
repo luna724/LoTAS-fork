@@ -25,9 +25,9 @@ public class NetherMobDropManipulation extends DropManipulationScreen.DropManipu
 	public static SmallCheckboxWidget optimizeGhast = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.ghast"), false);//"Optimize Ghast Drops"
 	public static SmallCheckboxWidget optimizeWitherskeleton = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.witherskeleton"), false);//"Optimize Witherskeleton Drops"
 	//#if MC>=11601
-//$$ 	public static SmallCheckboxWidget optimizePigman = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.zombiepiglin"), false);//"Optimize Zombified Piglin Drops"
+	public static SmallCheckboxWidget optimizePigman = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.zombiepiglin"), false);//"Optimize Zombified Piglin Drops"
 	//#else
-	public static SmallCheckboxWidget optimizePigman = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.zombiepigman"), false);//"Optimize Zombie Pigman Drops"
+//$$ 	public static SmallCheckboxWidget optimizePigman = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.zombiepigman"), false);//"Optimize Zombie Pigman Drops"
 	//#endif
 	public static SmallCheckboxWidget optimizeMagmaCube = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.entity.nether.magmacube"), false);//"Optimize Magma Cube Drops"
 
@@ -58,9 +58,9 @@ public class NetherMobDropManipulation extends DropManipulationScreen.DropManipu
 		if (entity instanceof WitherSkeleton && optimizeWitherskeleton.isChecked())
 			return ImmutableList.of(new ItemStack(Items.COAL, 1+lootingBonus), new ItemStack(Items.BONE, 2+lootingBonus), new ItemStack(Items.WITHER_SKELETON_SKULL));
 		//#if MC>=11600
-//$$ 		if (entity instanceof net.minecraft.world.entity.monster.ZombifiedPiglin && optimizePigman.isChecked()) if (!((net.minecraft.world.entity.monster.ZombifiedPiglin) entity).isBaby()) return ImmutableList.of(new ItemStack(Items.ROTTEN_FLESH, 2+lootingBonus), new ItemStack(Items.GOLD_NUGGET, 1+lootingBonus), new ItemStack(Items.GOLD_INGOT, 1));
+		if (entity instanceof net.minecraft.world.entity.monster.ZombifiedPiglin && optimizePigman.isChecked()) if (!((net.minecraft.world.entity.monster.ZombifiedPiglin) entity).isBaby()) return ImmutableList.of(new ItemStack(Items.ROTTEN_FLESH, 2+lootingBonus), new ItemStack(Items.GOLD_NUGGET, 1+lootingBonus), new ItemStack(Items.GOLD_INGOT, 1));
 		//#else
-		if (entity instanceof net.minecraft.world.entity.monster.PigZombie && optimizePigman.isChecked()) if (!((net.minecraft.world.entity.monster.PigZombie) entity).isBaby()) return ImmutableList.of(new ItemStack(Items.ROTTEN_FLESH, 2+lootingBonus), new ItemStack(Items.GOLD_NUGGET, 1+lootingBonus), new ItemStack(Items.GOLD_INGOT, 1));
+//$$ 		if (entity instanceof net.minecraft.world.entity.monster.PigZombie && optimizePigman.isChecked()) if (!((net.minecraft.world.entity.monster.PigZombie) entity).isBaby()) return ImmutableList.of(new ItemStack(Items.ROTTEN_FLESH, 2+lootingBonus), new ItemStack(Items.GOLD_NUGGET, 1+lootingBonus), new ItemStack(Items.GOLD_INGOT, 1));
 		//#endif
 		if (entity instanceof MagmaCube && optimizeMagmaCube.isChecked())
 			if (((MagmaCube) entity).getSize() != 1)

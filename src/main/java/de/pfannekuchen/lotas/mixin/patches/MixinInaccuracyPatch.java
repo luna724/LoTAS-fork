@@ -14,9 +14,9 @@ import java.util.Random;
  * @author CittyKat
  */
 //#if MC>=11600
-//$$ @Mixin(net.minecraft.world.entity.projectile.Projectile.class)
+@Mixin(net.minecraft.world.entity.projectile.Projectile.class)
 //#else
-@Mixin(net.minecraft.world.entity.projectile.ThrowableProjectile.class)
+//$$ @Mixin(net.minecraft.world.entity.projectile.ThrowableProjectile.class)
 //#endif
 public class MixinInaccuracyPatch {
 	//#if MC>=11900

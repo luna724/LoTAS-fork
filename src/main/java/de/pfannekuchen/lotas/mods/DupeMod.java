@@ -24,9 +24,9 @@ public class DupeMod {
 	 */
 	public static void save(Minecraft client) {
 		//#if MC>=11700
-//$$ 		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).getInventory();
+		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).getInventory();
 		//#else
-		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).inventory;
+//$$ 		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).inventory;
 		//#endif
 		for (int i = 0; i < inventory.items.size(); i++) {
 			main.set(i, inventory.items.get(i).copy());
@@ -46,9 +46,9 @@ public class DupeMod {
 	 */
 	public static void load(Minecraft client) {
 		//#if MC>=11700
-//$$ 		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).getInventory();
+		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).getInventory();
 		//#else
-		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).inventory;
+//$$ 		Inventory inventory = client.getSingleplayerServer().getPlayerList().getPlayer(client.player.getUUID()).inventory;
 		//#endif
 		for (int i = 0; i < main.size(); i++) {
 			inventory.items.set(i, main.get(i));

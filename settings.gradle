@@ -7,6 +7,9 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.10.0'
+}
 
 def versions2 = [
         '1.14.4',
@@ -18,7 +21,8 @@ def versions2 = [
         '1.18.2',
         '1.19.0',
         '1.19.2',
-        '1.19.3'
+        '1.19.3',
+        'fabric'
 ]
 versions2.collect {":versions2:$it"}.each {
     include it

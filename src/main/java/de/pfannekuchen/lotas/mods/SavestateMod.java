@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.lwjgl.glfw.GLFW;
 
+import com.luna724.lotas.SaveAdditionalStateMod;
 import de.pfannekuchen.lotas.core.MCVer;
 import de.pfannekuchen.lotas.core.utils.Timer;
 import de.pfannekuchen.lotas.mixin.render.gui.MixinGuiIngameMenu;
@@ -98,6 +99,9 @@ public class SavestateMod {
 		}).length;
 
 		File savestateDir = new File(savestatesDir, worldName + "-Savestate" + (existingSavestates + 1));
+		SaveAdditionalStateMod.Companion.onSaveState(
+				savestateDir, worldName, existingSavestates+1
+		);
 
 		try {
 			FileUtils.copyDirectory(worldDir, savestateDir);
@@ -117,9 +121,9 @@ public class SavestateMod {
 //$$         mc.createWorldOpenFlows().loadLevel(mc.screen, worldName);
 		//#else
 		//#if MC>=11601
-//$$ 		mc.loadLevel(worldName);
+		mc.loadLevel(worldName);
 		//#else
-		mc.selectLevel(worldName, worldName, null);
+//$$ 		mc.selectLevel(worldName, worldName, null);
 		//#endif
 		//#endif
 		
@@ -231,9 +235,9 @@ public class SavestateMod {
 //$$         mc.createWorldOpenFlows().loadLevel(mc.screen, worldName);
 		//#else
 		//#if MC>=11601
-//$$ 		mc.loadLevel(worldName);
+		mc.loadLevel(worldName);
 		//#else
-		mc.selectLevel(worldName, worldName, null);
+//$$ 		mc.selectLevel(worldName, worldName, null);
 		//#endif
 		//#endif
 		

@@ -77,9 +77,9 @@ public class SpawnManipMod {
 		Entity entity = new Skeleton(EntityType.SKELETON, world);
 		entity.setPos(target.x, target.y, target.z);
 		//#if MC>=11600
-//$$ 		((Mob)entity).finalizeSpawn(world, world.getCurrentDifficultyAt(entity.blockPosition()), MobSpawnType.NATURAL, null, null);
+		((Mob)entity).finalizeSpawn(world, world.getCurrentDifficultyAt(entity.blockPosition()), MobSpawnType.NATURAL, null, null);
 		//#else
-		((Mob)entity).finalizeSpawn(world, world.getCurrentDifficultyAt(entity.getCommandSenderBlockPosition()), MobSpawnType.NATURAL, null, null);
+//$$ 		((Mob)entity).finalizeSpawn(world, world.getCurrentDifficultyAt(entity.getCommandSenderBlockPosition()), MobSpawnType.NATURAL, null, null);
 		//#endif
 		world.addFreshEntity(entity);
 	}
@@ -200,9 +200,9 @@ public class SpawnManipMod {
 	public List<EntityOptions> getManipList(){
 		List<EntityOptions> entities=new ArrayList<EntityOptions>();
 		//#if MC>=11601
-//$$ 		net.minecraft.resources.ResourceKey<Level> dimension = MCVer.getCurrentLevel().dimension();
+		net.minecraft.resources.ResourceKey<Level> dimension = MCVer.getCurrentLevel().dimension();
 		//#else
-		DimensionType dimension = MCVer.getCurrentLevel().getDimension().getType();
+//$$ 		DimensionType dimension = MCVer.getCurrentLevel().getDimension().getType();
 		//#endif
 		//#if MC>=12000
 //$$ 		ServerLevel world = mc.getSingleplayerServer().getPlayerList().getPlayers().get(0).serverLevel();
@@ -214,9 +214,9 @@ public class SpawnManipMod {
 		float[] hand= {1f,1f};
 		
 		//#if MC>=11601
-//$$ 		if(dimension == Level.OVERWORLD) {
+		if(dimension == Level.OVERWORLD) {
 		//#else
-		if(dimension == AccessorDimensionTypes.getOverworld()) {
+//$$ 		if(dimension == AccessorDimensionTypes.getOverworld()) {
 		//#endif
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.cave_spider"), new CaveSpider(EntityType.CAVE_SPIDER, world)));
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.creeper"), new Creeper(EntityType.CREEPER, world)));
@@ -347,44 +347,44 @@ public class SpawnManipMod {
 			}
 			
 		//#if MC>=11601
-//$$ 		}else if(dimension == Level.NETHER) {
+		}else if(dimension == Level.NETHER) {
 		//#else
-		}else if(dimension == AccessorDimensionTypes.getNether()) {
+//$$ 		}else if(dimension == AccessorDimensionTypes.getNether()) {
 		//#endif
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.blaze"), new Blaze(EntityType.BLAZE, world)));
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.enderman"), new EnderMan(EntityType.ENDERMAN, world)));
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.ghast"), new Ghast(EntityType.GHAST, world)));
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.magma_cube"), new MagmaCube(EntityType.MAGMA_CUBE, world)));
 			//#if MC>=11600
-//$$ 			LivingEntity piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
-//$$ 			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.GOLDEN_SWORD));
-//$$ 			((AccessorMobEntity)piglin).setHandDropChances(hand);
-//$$ 			entities.add(new EntityOptions(String.format("%s (%s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.golden_sword")), piglin));
-//$$
-//$$ 			piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
-//$$ 			piglin.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.GOLDEN_BOOTS));
-//$$ 			piglin.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.GOLDEN_CHESTPLATE));
-//$$ 			piglin.setItemSlot(EquipmentSlot.LEGS, new ItemStack(Items.GOLDEN_LEGGINGS));
-//$$ 			piglin.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
-//$$ 			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.GOLDEN_SWORD));
-//$$ 			((AccessorMobEntity)piglin).setArmorDropChances(armor);
-//$$ 			((AccessorMobEntity)piglin).setHandDropChances(hand);
-//$$ 			entities.add(new EntityOptions(String.format("%s (%s, %s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.golden_sword"), I18n.get("spawnmanip.lotas.gold_armor")), piglin));
-//$$
-//$$ 			piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
-//$$ 			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.CROSSBOW));
-//$$ 			((AccessorMobEntity)piglin).setHandDropChances(hand);
-//$$ 			entities.add(new EntityOptions(String.format("%s (%s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.crossbow")), piglin));
-//$$
-//$$ 			piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
-//$$ 			piglin.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.GOLDEN_BOOTS));
-//$$ 			piglin.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.GOLDEN_CHESTPLATE));
-//$$ 			piglin.setItemSlot(EquipmentSlot.LEGS, new ItemStack(Items.GOLDEN_LEGGINGS));
-//$$ 			piglin.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
-//$$ 			((AccessorMobEntity)piglin).setArmorDropChances(armor);
-//$$ 			((AccessorMobEntity)piglin).setHandDropChances(hand);
-//$$ 			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.CROSSBOW));
-//$$ 			entities.add(new EntityOptions(String.format("%s (%s, %s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.crossbow"), I18n.get("spawnmanip.lotas.gold_armor")), piglin));
+			LivingEntity piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
+			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.GOLDEN_SWORD));
+			((AccessorMobEntity)piglin).setHandDropChances(hand);
+			entities.add(new EntityOptions(String.format("%s (%s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.golden_sword")), piglin));
+
+			piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
+			piglin.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.GOLDEN_BOOTS));
+			piglin.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.GOLDEN_CHESTPLATE));
+			piglin.setItemSlot(EquipmentSlot.LEGS, new ItemStack(Items.GOLDEN_LEGGINGS));
+			piglin.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
+			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.GOLDEN_SWORD));
+			((AccessorMobEntity)piglin).setArmorDropChances(armor);
+			((AccessorMobEntity)piglin).setHandDropChances(hand);
+			entities.add(new EntityOptions(String.format("%s (%s, %s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.golden_sword"), I18n.get("spawnmanip.lotas.gold_armor")), piglin));
+
+			piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
+			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.CROSSBOW));
+			((AccessorMobEntity)piglin).setHandDropChances(hand);
+			entities.add(new EntityOptions(String.format("%s (%s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.crossbow")), piglin));
+
+			piglin=new net.minecraft.world.entity.monster.piglin.Piglin(EntityType.PIGLIN, world);
+			piglin.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.GOLDEN_BOOTS));
+			piglin.setItemSlot(EquipmentSlot.CHEST, new ItemStack(Items.GOLDEN_CHESTPLATE));
+			piglin.setItemSlot(EquipmentSlot.LEGS, new ItemStack(Items.GOLDEN_LEGGINGS));
+			piglin.setItemSlot(EquipmentSlot.HEAD, new ItemStack(Items.GOLDEN_HELMET));
+			((AccessorMobEntity)piglin).setArmorDropChances(armor);
+			((AccessorMobEntity)piglin).setHandDropChances(hand);
+			piglin.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.CROSSBOW));
+			entities.add(new EntityOptions(String.format("%s (%s, %s)", I18n.get("entity.minecraft.piglin"), I18n.get("item.minecraft.crossbow"), I18n.get("spawnmanip.lotas.gold_armor")), piglin));
 			//#endif
 			LivingEntity entity = new Skeleton(EntityType.SKELETON, world);
 			entity.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BOW));
@@ -452,9 +452,9 @@ public class SpawnManipMod {
 			}
 			
 		//#if MC>=11601
-//$$ 		}else if(dimension == Level.END) {
+		}else if(dimension == Level.END) {
 		//#else
-		} else if(dimension == AccessorDimensionTypes.getEnd()) {
+//$$ 		} else if(dimension == AccessorDimensionTypes.getEnd()) {
 		//#endif
 			entities.add(new EntityOptions(I18n.get("entity.minecraft.enderman"), new EnderMan(EntityType.ENDERMAN, world)));
 		} else {

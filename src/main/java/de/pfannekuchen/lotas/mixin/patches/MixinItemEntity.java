@@ -28,9 +28,9 @@ public abstract class MixinItemEntity extends Entity {
 	 * Modify the Velocity of any Item
 	 */
 	//#if MC>=11700
-//$$ 	@Inject(at = @At("TAIL"), method = "Lnet/minecraft/world/entity/item/ItemEntity;<init>(Lnet/minecraft/world/level/Level;DDDLnet/minecraft/world/item/ItemStack;)V")
+	@Inject(at = @At("TAIL"), method = "Lnet/minecraft/world/entity/item/ItemEntity;<init>(Lnet/minecraft/world/level/Level;DDDLnet/minecraft/world/item/ItemStack;)V")
 	//#else
-	@Inject(at = @At("TAIL"), method = "Lnet/minecraft/world/entity/item/ItemEntity;<init>(Lnet/minecraft/world/level/Level;DDD)V")
+//$$ 	@Inject(at = @At("TAIL"), method = "Lnet/minecraft/world/entity/item/ItemEntity;<init>(Lnet/minecraft/world/level/Level;DDD)V")
 	//#endif
 	public void hackVelocity(CallbackInfo ci) {
 		try {

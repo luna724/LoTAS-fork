@@ -35,12 +35,12 @@ public abstract class MixinServerPlayerEntityPatch extends Player {
 	//#else
 	//#if MC>=11601
 	//#if MC>=11605
-//$$ 	public MixinServerPlayerEntityPatch(Level level, net.minecraft.core.BlockPos blockPos, float f, GameProfile gameProfile) { super(level, blockPos, f, gameProfile); }
+	public MixinServerPlayerEntityPatch(Level level, net.minecraft.core.BlockPos blockPos, float f, GameProfile gameProfile) { super(level, blockPos, f, gameProfile); }
 	//#else
 //$$ 	public MixinServerPlayerEntityPatch(Level level, net.minecraft.core.BlockPos blockPos, GameProfile gameProfile) { super(level, blockPos, gameProfile); }
 	//#endif
 	//#else
-	public MixinServerPlayerEntityPatch(Level world, GameProfile profile) { super(world, profile); }
+//$$ 	public MixinServerPlayerEntityPatch(Level world, GameProfile profile) { super(world, profile); }
 	//#endif
 	//#endif
 	//#endif

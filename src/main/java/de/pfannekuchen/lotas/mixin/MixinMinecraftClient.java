@@ -76,9 +76,9 @@ public class MixinMinecraftClient {
 	 */
 	@Inject(method = "setLevel", at = @At("HEAD"))
 	//#if MC>=11500
-//$$ 	public void injectloadWorld(net.minecraft.client.multiplayer.ClientLevel worldClientIn, CallbackInfo ci) {
+	public void injectloadWorld(net.minecraft.client.multiplayer.ClientLevel worldClientIn, CallbackInfo ci) {
 	//#else
-	public void injectloadWorld(net.minecraft.client.multiplayer.MultiPlayerLevel worldClientIn, CallbackInfo ci) {
+//$$ 	public void injectloadWorld(net.minecraft.client.multiplayer.MultiPlayerLevel worldClientIn, CallbackInfo ci) {
 	//#endif
 		isLoadingWorld = ConfigUtils.getBoolean("tools", "hitEscape") && worldClientIn != null;
 	}
@@ -87,9 +87,9 @@ public class MixinMinecraftClient {
 	 * Called after the Graphics have been initialized
 	 */
 	//#if MC>=11500
-//$$ 	@Inject(method = "run", at = @At("HEAD"))
+	@Inject(method = "run", at = @At("HEAD"))
 	//#else
-	@Inject(method = "init", at = @At("TAIL"))
+//$$ 	@Inject(method = "init", at = @At("TAIL"))
 	//#endif
 	public void loadRenderingLate(CallbackInfo ci) {
 		/* Load Textures because FabricAPI has been removed */
@@ -160,19 +160,19 @@ public class MixinMinecraftClient {
 		//#if MC>=11800
 //$$ 		// 1.18+ seedfinders will never work 
 		//#else
-//$$ 		if (LoTASModContainer.i != -1) {
-//$$ 			if (Minecraft.getInstance().level != null) {
-//$$ 				Minecraft.getInstance().getSingleplayerServer().halt(true);
-//$$ 			}
-//$$
-//$$ 			Minecraft.getInstance().forceSetScreen(new GenericDirtMessageScreen(new net.minecraft.network.chat.TranslatableComponent("createWorld.preparing")));
-//$$ 			LevelSettings levelSettings2;
-//$$ 			levelSettings2 = new LevelSettings(UUID.randomUUID().toString().substring(0, 10), GameType.CREATIVE, false, Difficulty.EASY, true, new GameRules(), net.minecraft.world.level.DataPackConfig.DEFAULT);
-//$$ 			Minecraft.getInstance().createLevel(UUID.randomUUID().toString().substring(0, 10), levelSettings2, net.minecraft.core.RegistryAccess.RegistryHolder.builtin(), net.minecraft.world.level.levelgen.WorldGenSettings.create(net.minecraft.core.RegistryAccess.builtin(), new Properties()).withSeed(true, OptionalLong.of(LoTASModContainer.i)));
-//$$
-//$$ 			LoTASModContainer.i = -1;
-//$$ 			System.gc();
-//$$ 		}
+		if (LoTASModContainer.i != -1) {
+			if (Minecraft.getInstance().level != null) {
+				Minecraft.getInstance().getSingleplayerServer().halt(true);
+			}
+
+			Minecraft.getInstance().forceSetScreen(new GenericDirtMessageScreen(new net.minecraft.network.chat.TranslatableComponent("createWorld.preparing")));
+			LevelSettings levelSettings2;
+			levelSettings2 = new LevelSettings(UUID.randomUUID().toString().substring(0, 10), GameType.CREATIVE, false, Difficulty.EASY, true, new GameRules(), net.minecraft.world.level.DataPackConfig.DEFAULT);
+			Minecraft.getInstance().createLevel(UUID.randomUUID().toString().substring(0, 10), levelSettings2, net.minecraft.core.RegistryAccess.RegistryHolder.builtin(), net.minecraft.world.level.levelgen.WorldGenSettings.create(net.minecraft.core.RegistryAccess.builtin(), new Properties()).withSeed(true, OptionalLong.of(LoTASModContainer.i)));
+
+			LoTASModContainer.i = -1;
+			System.gc();
+		}
 		//#endif
 		//#endif
 		
@@ -182,23 +182,23 @@ public class MixinMinecraftClient {
 			//#if MC>=12000
 //$$ 			boolean isOnGround = player.onGround();
 			//#else
-//$$ 			boolean isOnGround = player.isOnGround();
+			boolean isOnGround = player.isOnGround();
 			//#endif
 			//#else
-			boolean isOnGround = player.onGround;
+//$$ 			boolean isOnGround = player.onGround;
 			//#endif
 			if (isOnGround && !wasOnGround && KeybindsUtils.holdStrafeKeybind.isDown()) {
 				//#if MC>=11700
-//$$ 				player.setYRot(player.getYRot() + 45);
+				player.setYRot(player.getYRot() + 45);
 				//#else
-				player.yRot += 45;
+//$$ 				player.yRot += 45;
 				//#endif
 				KeyMapping.set(options.keyRight.getDefaultKey(), false);
 			} else if (!isOnGround && wasOnGround && KeybindsUtils.holdStrafeKeybind.isDown()) {
 				//#if MC>=11700
-//$$ 				player.setYRot(player.getYRot() - 45);
+				player.setYRot(player.getYRot() - 45);
 				//#else
-				player.yRot -= 45;
+//$$ 				player.yRot -= 45;
 				//#endif
 				KeyMapping.set(options.keyRight.getDefaultKey(), true);
 			}

@@ -61,7 +61,7 @@ public class DropManipulationScreen extends Screen {
 		manipulations.add(new DrownedDropManipulation(0, 0, 0, 0));
 		manipulations.add(new FishDropManipulation(0, 0, 0, 0));
 		//#if MC>=11600
-//$$ 		manipulations.add(new BarteringDropManipulation(0, 0, 0, 0));
+		manipulations.add(new BarteringDropManipulation(0, 0, 0, 0));
 		//#endif
 	}
 
@@ -117,11 +117,11 @@ public class DropManipulationScreen extends Screen {
 	//#if MC>=12000
 //$$ 	@Override public void render(net.minecraft.client.gui.GuiGraphics stack, int mouseX, int mouseY, float delta) {
 	//#else
-//$$ 	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
+	@Override public void render(com.mojang.blaze3d.vertex.PoseStack stack, int mouseX, int mouseY, float delta) {
 	//#endif
-//$$ 		MCVer.stack = stack;
+		MCVer.stack = stack;
 	//#else
-	@Override public void render(int mouseX, int mouseY, float delta) {
+//$$ 	@Override public void render(int mouseX, int mouseY, float delta) {
 	//#endif
 		MCVer.renderBackground(this);
 		Tesselator tessellator = Tesselator.getInstance();
@@ -130,11 +130,11 @@ public class DropManipulationScreen extends Screen {
 		MCVer.disableTexture();
 		
 		//#if MC>=11700
-//$$ 		MCVer.color4f(1f, 1f, 1f, 0.5F);
-//$$ 		MCVer.enableBlend();
-//$$ 		MCVer.enableDepthTest();
-//$$ 		MCVer.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
-//$$
+		MCVer.color4f(1f, 1f, 1f, 0.5F);
+		MCVer.enableBlend();
+		MCVer.enableDepthTest();
+		MCVer.blendFunc(SourceFactor.SRC_ALPHA, DestFactor.ONE_MINUS_SRC_ALPHA);
+
 		//#if MC>=11903
 		//#if MC>=12000
 //$$ 		org.joml.Matrix4f matrix = MCVer.stack.pose().last().pose();
@@ -142,106 +142,106 @@ public class DropManipulationScreen extends Screen {
 //$$ 		org.joml.Matrix4f matrix = MCVer.stack.last().pose();
 		//#endif
 		//#else
-//$$ 		com.mojang.math.Matrix4f matrix = MCVer.stack.last().pose();
+		com.mojang.math.Matrix4f matrix = MCVer.stack.last().pose();
 		//#endif
-//$$ 		com.mojang.blaze3d.systems.RenderSystem.setShader(net.minecraft.client.renderer.GameRenderer::getPositionShader);
-//$$ 		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
-//$$ 		bufferBuilder.vertex(matrix, 24, 24, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, 24, height - 24, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f + 1, height - 24, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f + 1, 24, 0).endVertex();
+		com.mojang.blaze3d.systems.RenderSystem.setShader(net.minecraft.client.renderer.GameRenderer::getPositionShader);
+		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+		bufferBuilder.vertex(matrix, 24, 24, 0).endVertex();
+		bufferBuilder.vertex(matrix, 24, height - 24, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f + 1, height - 24, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f + 1, 24, 0).endVertex();
 		//#if MC>=11900
 //$$ 		BufferUploader.drawWithShader(bufferBuilder.end());
 		//#else
-//$$ 		bufferBuilder.end();
-//$$ 		BufferUploader.end(bufferBuilder);
+		bufferBuilder.end();
+		BufferUploader.end(bufferBuilder);
 		//#endif
 		//#else
-		MCVer.color4f(.5f, .5f, .5f, 0.5F);
-		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
-
-		bufferBuilder.vertex(24, 24, 0).endVertex();
-		bufferBuilder.vertex(24, height - 24, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f + 1, height - 24, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f + 1, 24, 0).endVertex();
-		tessellator.end();
-
+//$$ 		MCVer.color4f(.5f, .5f, .5f, 0.5F);
+//$$ 		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
+//$$
+//$$ 		bufferBuilder.vertex(24, 24, 0).endVertex();
+//$$ 		bufferBuilder.vertex(24, height - 24, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f + 1, height - 24, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f + 1, 24, 0).endVertex();
+//$$ 		tessellator.end();
+//$$
 		//#endif
 		
 		//#if MC>=11700
-//$$ 		MCVer.color4f(0, 0, 0, 1f);
-//$$ 		com.mojang.blaze3d.systems.RenderSystem.setShader(net.minecraft.client.renderer.GameRenderer::getPositionShader);
-//$$ 		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
-//$$ 		bufferBuilder.vertex(matrix, 25, 25, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, 25, height - 25, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f, height - 25, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f, 25, 0).endVertex();
+		MCVer.color4f(0, 0, 0, 1f);
+		com.mojang.blaze3d.systems.RenderSystem.setShader(net.minecraft.client.renderer.GameRenderer::getPositionShader);
+		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+		bufferBuilder.vertex(matrix, 25, 25, 0).endVertex();
+		bufferBuilder.vertex(matrix, 25, height - 25, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f, height - 25, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f, 25, 0).endVertex();
 		//#if MC>=11900
 //$$ 		BufferUploader.drawWithShader(bufferBuilder.end());
 		//#else
-//$$ 		bufferBuilder.end();
-//$$ 		BufferUploader.end(bufferBuilder);
+		bufferBuilder.end();
+		BufferUploader.end(bufferBuilder);
 		//#endif
 		//#else
-		MCVer.color4f(0, 0, 0, 0.5F);
-		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
-		bufferBuilder.vertex(25, 25, 0).endVertex();
-		bufferBuilder.vertex(25, height - 25, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f, height - 25, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f, 25, 0).endVertex();
-		tessellator.end();
+//$$ 		MCVer.color4f(0, 0, 0, 0.5F);
+//$$ 		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
+//$$ 		bufferBuilder.vertex(25, 25, 0).endVertex();
+//$$ 		bufferBuilder.vertex(25, height - 25, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f, height - 25, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f, 25, 0).endVertex();
+//$$ 		tessellator.end();
 		//#endif
 
 		int boxY = 30 + selected * 15;
 		
 		//#if MC>=11700
-//$$ 		MCVer.color4f(1f, 1f, 1f, 1f);
-//$$ 		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
-//$$ 		bufferBuilder.vertex(matrix, 27, boxY - 4, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, 27, boxY + 11, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f - 2, boxY + 11, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f - 2, boxY - 4, 0).endVertex();
+		MCVer.color4f(1f, 1f, 1f, 1f);
+		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+		bufferBuilder.vertex(matrix, 27, boxY - 4, 0).endVertex();
+		bufferBuilder.vertex(matrix, 27, boxY + 11, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f - 2, boxY + 11, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f - 2, boxY - 4, 0).endVertex();
 		//#if MC>=11900
 //$$ 		BufferUploader.drawWithShader(bufferBuilder.end());
 		//#else
-//$$ 		bufferBuilder.end();
-//$$ 		BufferUploader.end(bufferBuilder);
+		bufferBuilder.end();
+		BufferUploader.end(bufferBuilder);
 		//#endif
 		//#else
-		MCVer.color4f(1f, 1f, 1f, 1f);
-		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
-
-		bufferBuilder.vertex(27, boxY - 4, 0).endVertex();
-		bufferBuilder.vertex(27, boxY + 11, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f - 2, boxY + 11, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f - 2, boxY - 4, 0).endVertex();
-		tessellator.end();
+//$$ 		MCVer.color4f(1f, 1f, 1f, 1f);
+//$$ 		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
+//$$
+//$$ 		bufferBuilder.vertex(27, boxY - 4, 0).endVertex();
+//$$ 		bufferBuilder.vertex(27, boxY + 11, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f - 2, boxY + 11, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f - 2, boxY - 4, 0).endVertex();
+//$$ 		tessellator.end();
 		//#endif
 		
 		//#if MC>=11700
-//$$ 		MCVer.color4f(0, 0, 0, 1F);
-//$$ 		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
-//$$ 		bufferBuilder.vertex(matrix, 28, boxY - 3, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, 28, boxY + 10, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f - 3, boxY + 10, 0).endVertex();
-//$$ 		bufferBuilder.vertex(matrix, width / 3.5f - 3, boxY - 3, 0).endVertex();
+		MCVer.color4f(0, 0, 0, 1F);
+		bufferBuilder.begin(com.mojang.blaze3d.vertex.VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+		bufferBuilder.vertex(matrix, 28, boxY - 3, 0).endVertex();
+		bufferBuilder.vertex(matrix, 28, boxY + 10, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f - 3, boxY + 10, 0).endVertex();
+		bufferBuilder.vertex(matrix, width / 3.5f - 3, boxY - 3, 0).endVertex();
 		//#if MC>=11900
 //$$ 		BufferUploader.drawWithShader(bufferBuilder.end());
 		//#else
-//$$ 		bufferBuilder.end();
-//$$ 		BufferUploader.end(bufferBuilder);
+		bufferBuilder.end();
+		BufferUploader.end(bufferBuilder);
 		//#endif
-//$$ 		MCVer.disableBlend();
-//$$ 		MCVer.enableTexture();
-//$$ 		MCVer.disableDepthTest();
+		MCVer.disableBlend();
+		MCVer.enableTexture();
+		MCVer.disableDepthTest();
 		//#else
-		MCVer.color4f(0, 0, 0, 0.5F);
-		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
-		bufferBuilder.vertex(28, boxY - 3, 0).endVertex();
-		bufferBuilder.vertex(28, boxY + 10, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f - 3, boxY + 10, 0).endVertex();
-		bufferBuilder.vertex(width / 3.5f - 3, boxY - 3, 0).endVertex();
-		tessellator.end();
+//$$ 		MCVer.color4f(0, 0, 0, 0.5F);
+//$$ 		bufferBuilder.begin(GL11.GL_QUADS, DefaultVertexFormat.POSITION);
+//$$ 		bufferBuilder.vertex(28, boxY - 3, 0).endVertex();
+//$$ 		bufferBuilder.vertex(28, boxY + 10, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f - 3, boxY + 10, 0).endVertex();
+//$$ 		bufferBuilder.vertex(width / 3.5f - 3, boxY - 3, 0).endVertex();
+//$$ 		tessellator.end();
 		//#endif
 		
 		MCVer.enableTexture();

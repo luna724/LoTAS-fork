@@ -27,18 +27,18 @@ public abstract class MixinInGameHud {
 	//#if MC>=12000
 //$$ 	public void mixinRenderExperienceBar(net.minecraft.client.gui.GuiGraphics poseStack, int i, CallbackInfo ci) {
 	//#else
-//$$ 	public void mixinRenderExperienceBar(com.mojang.blaze3d.vertex.PoseStack poseStack, int i, CallbackInfo ci) {
+	public void mixinRenderExperienceBar(com.mojang.blaze3d.vertex.PoseStack poseStack, int i, CallbackInfo ci) {
 	//#endif
 	//#else
-	public void mixinRenderExperienceBar(CallbackInfo ci) {
+//$$ 	public void mixinRenderExperienceBar(CallbackInfo ci) {
 	//#endif
 		int xPos = (this.screenWidth / 2)-6;
         int yPos = this.screenHeight - 31 - 19;
         
         //#if MC>=11700
-        //$$ RegistryUtils.applyRegistry(MCVer.stack, xPos, yPos, 0.3);
+        RegistryUtils.applyRegistry(MCVer.stack, xPos, yPos, 0.3);
         //#else
-        RegistryUtils.applyRegistry(null, xPos, yPos, 15);
+        //$$ RegistryUtils.applyRegistry(null, xPos, yPos, 15);
         //#endif
 	}
 }

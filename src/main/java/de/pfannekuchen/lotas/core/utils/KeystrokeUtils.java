@@ -14,9 +14,9 @@ public class KeystrokeUtils {
 			KeyMapping binds = gamesettings.keyMappings[i];
 			try {
 				//#if MC>=11601
-//$$ 				if (binds.isDown()) out += binds.getTranslatedKeyMessage().getString().toUpperCase() + " ";
+				if (binds.isDown()) out += binds.getTranslatedKeyMessage().getString().toUpperCase() + " ";
 				//#else
-				if (binds.isDown()) out += binds.getTranslatedKeyMessage().toUpperCase() + " ";
+//$$ 				if (binds.isDown()) out += binds.getTranslatedKeyMessage().toUpperCase() + " ";
 				//#endif
 			} catch (Exception e3) {
 				

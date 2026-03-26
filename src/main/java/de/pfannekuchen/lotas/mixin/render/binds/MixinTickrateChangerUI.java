@@ -34,13 +34,13 @@ public class MixinTickrateChangerUI {
 //$$ 	@Redirect(method = "renderPlayerHealth", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;blit(Lcom/mojang/blaze3d/vertex/PoseStack;IIIIII)V", ordinal = 0))
 	//#endif
 	//#else
-//$$ 	@Redirect(method = "renderPlayerHealth", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;blit(Lcom/mojang/blaze3d/vertex/PoseStack;IIIIII)V", ordinal = 3))
+	@Redirect(method = "renderPlayerHealth", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;blit(Lcom/mojang/blaze3d/vertex/PoseStack;IIIIII)V", ordinal = 3))
 	//#endif
 	//#endif
 	//#else
 //$$ 	@Redirect(method = "renderPlayerHealth", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;blit(Lcom/mojang/blaze3d/vertex/PoseStack;IIIIII)V", ordinal = 10))
 	//#endif
-//$$
+
 	//#if MC>=11904
 	//#if MC>=12000
 //$$ 	private void redirect_renderPlayerHealth(net.minecraft.client.gui.GuiGraphics poseStack, ResourceLocation fireParticles, int x, int y, int textureX, int textureY, int width, int height) {
@@ -48,11 +48,11 @@ public class MixinTickrateChangerUI {
 //$$ 	private void redirect_renderPlayerHealth(com.mojang.blaze3d.vertex.PoseStack poseStack, int x, int y, int textureX, int textureY, int width, int height) {
 	//#endif
 	//#else
-//$$ 	public void redirect_renderPlayerHealth(Gui gui, com.mojang.blaze3d.vertex.PoseStack poseStack, int x, int y, int textureX, int textureY, int width, int height) {
+	public void redirect_renderPlayerHealth(Gui gui, com.mojang.blaze3d.vertex.PoseStack poseStack, int x, int y, int textureX, int textureY, int width, int height) {
 	//#endif
 	//#else
-	@Redirect(method = "renderPlayerHealth", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;blit(IIIIII)V", ordinal = 11))
-	public void redirect_renderPlayerHealth(Gui parentIn, int x, int y, int textureX, int textureY, int width, int height) {
+//$$ 	@Redirect(method = "renderPlayerHealth", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Gui;blit(IIIIII)V", ordinal = 11))
+//$$ 	public void redirect_renderPlayerHealth(Gui parentIn, int x, int y, int textureX, int textureY, int width, int height) {
 	//#endif
 		//#if MC>=11601
 		//#if MC>=11904
@@ -62,10 +62,10 @@ public class MixinTickrateChangerUI {
 //$$ 		net.minecraft.client.gui.GuiComponent.blit(poseStack, x, y, textureX, textureY, width, height);
 		//#endif
 		//#else
-//$$ 		gui.blit(poseStack, x, y, textureX, textureY, width, height);
+		gui.blit(poseStack, x, y, textureX, textureY, width, height);
 		//#endif
 		//#else
-		parentIn.blit(x, y, textureX, textureY, width, height);
+//$$ 		parentIn.blit(x, y, textureX, textureY, width, height);
 		//#endif
 		int color = 0x000000;
 		if (minecraft.player.hasEffect(MobEffects.HUNGER)) {
@@ -74,7 +74,7 @@ public class MixinTickrateChangerUI {
 		int mask = 0xFF000000;
 		MCVer.fill(x + 8, y + 8, x + 1 + 8, y + 1 + 8, mask + color);
 		//#if MC<11701
-		MCVer.color4f(255, 255, 255, 255);
+//$$ 		MCVer.color4f(255, 255, 255, 255);
 		//#endif
 	}
 }

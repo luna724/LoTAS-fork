@@ -23,7 +23,7 @@ public class OreDropManipulation extends DropManipulationScreen.DropManipulation
 	public static SmallCheckboxWidget optimizeLapis = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.blocks.ore.lapis"), false);//"Full Lapis Drops"
 	public static SmallCheckboxWidget optimizeRedstone = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.blocks.ore.redstone"), false);//"Full Redstone Drops"
 	//#if MC>=11700
-//$$ 	public static SmallCheckboxWidget optimizeCopper = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.blocks.ore.copper"), false);//"Full Copper Drops"
+	public static SmallCheckboxWidget optimizeCopper = new SmallCheckboxWidget(0, 0, I18n.get("dropmanipgui.lotas.blocks.ore.copper"), false);//"Full Copper Drops"
 	//#endif
 
 	public OreDropManipulation(int x, int y, int width, int height) {
@@ -53,9 +53,9 @@ public class OreDropManipulation extends DropManipulationScreen.DropManipulation
 //$$ 			return ImmutableList.of(new ItemStack(Items.RAW_COPPER, 5));
 //$$ 		}
 		//#else
-//$$ 		else if(block.defaultBlockState().getBlock() == Blocks.COPPER_ORE && optimizeCopper.isChecked()) {
-//$$ 			return ImmutableList.of(new ItemStack(Items.RAW_COPPER, 3));
-//$$ 		}
+		else if(block.defaultBlockState().getBlock() == Blocks.COPPER_ORE && optimizeCopper.isChecked()) {
+			return ImmutableList.of(new ItemStack(Items.RAW_COPPER, 3));
+		}
 		//#endif
 		//#endif
 		
@@ -83,8 +83,8 @@ public class OreDropManipulation extends DropManipulationScreen.DropManipulation
 		optimizeRedstone.x = x;
 		optimizeLapis.x = x;
 		//#if MC>=11700
-//$$ 		optimizeCopper.x = x;
-//$$ 		optimizeCopper.y = 96;
+		optimizeCopper.x = x;
+		optimizeCopper.y = 96;
 		//#endif
 		//#endif
 	}
@@ -96,7 +96,7 @@ public class OreDropManipulation extends DropManipulationScreen.DropManipulation
 			optimizeRedstone.mouseClicked(mouseX, mouseY, button);
 			optimizeLapis.mouseClicked(mouseX, mouseY, button);
 			//#if MC>=11700
-//$$ 			optimizeCopper.mouseClicked(mouseX, mouseY, button);
+			optimizeCopper.mouseClicked(mouseX, mouseY, button);
 			//#endif
 		}
 	}
@@ -111,7 +111,7 @@ public class OreDropManipulation extends DropManipulationScreen.DropManipulation
 			MCVer.render(optimizeRedstone, mouseX, mouseY, delta);
 			MCVer.render(optimizeLapis, mouseX, mouseY, delta);
 			//#if MC>=11700
-//$$ 			MCVer.render(optimizeCopper, mouseX, mouseY, delta);
+			MCVer.render(optimizeCopper, mouseX, mouseY, delta);
 			//#endif
 		}
 

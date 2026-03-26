@@ -36,9 +36,9 @@ public abstract class MixinMinecraftServer {
 	 * @return Milliseconds per tick
 	 */
 	//#if MC>=11601
-//$$ 	@ModifyConstant(method = "runServer", constant = @Constant(longValue = 50L))
+	@ModifyConstant(method = "runServer", constant = @Constant(longValue = 50L))
 	//#else
-	@ModifyConstant(method = "run", constant = @Constant(longValue = 50L))
+//$$ 	@ModifyConstant(method = "run", constant = @Constant(longValue = 50L))
 	//#endif
 	private long serverTickWaitTime(long ignored) {
 		if (!isTickrateZero()) {
@@ -78,9 +78,9 @@ public abstract class MixinMinecraftServer {
 	 * @return
 	 */
 	//#if MC>=11601
-//$$ 	@Redirect(method = "runServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;getMillis()J"))
+	@Redirect(method = "runServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;getMillis()J"))
 	//#else
-	@Redirect(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;getMillis()J"))
+//$$ 	@Redirect(method = "run", at = @At(value = "INVOKE", target = "Lnet/minecraft/Util;getMillis()J"))
 	//#endif
 	public long redirectGetMeasuringTimeMsInRun() {
 		return getCurrentTime();

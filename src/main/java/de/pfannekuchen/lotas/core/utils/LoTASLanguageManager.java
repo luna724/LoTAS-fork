@@ -29,10 +29,10 @@ public class LoTASLanguageManager{
 	
 	
 	//#if MC>=11601
-//$$ 	@SuppressWarnings("unchecked")
-//$$ 	public net.minecraft.client.resources.language.ClientLanguage reload(net.minecraft.client.resources.language.ClientLanguage locale) {
+	@SuppressWarnings("unchecked")
+	public net.minecraft.client.resources.language.ClientLanguage reload(net.minecraft.client.resources.language.ClientLanguage locale) {
 	//#else
-	public void reload(net.minecraft.client.resources.language.Locale locale) {
+//$$ 	public void reload(net.minecraft.client.resources.language.Locale locale) {
 	//#endif
 		InputStream langfile = getFromResourceManager(); // First check if a resourcepack is loaded and if it has a language file
 		
@@ -44,16 +44,16 @@ public class LoTASLanguageManager{
 		}
 		if(langfile!=null) {
 			//#if MC>=11601
-//$$ 			Map<String, String> oldMap = ((AccessorLanguage)locale).getStorage(); // getStorage is immutiable so we have to make it mutable again
-//$$ 			Map<String, String> map = new HashMap<>(oldMap);
-//$$ 			Language.loadFromJson(langfile, map::put);	// Append to the locale. This also uses vanilla patterns in the translation files
-//$$ 			((AccessorLanguage)locale).setStorage(ImmutableMap.copyOf((Map)map)); // Update the storage of the current language file
+			Map<String, String> oldMap = ((AccessorLanguage)locale).getStorage(); // getStorage is immutiable so we have to make it mutable again
+			Map<String, String> map = new HashMap<>(oldMap);
+			Language.loadFromJson(langfile, map::put);	// Append to the locale. This also uses vanilla patterns in the translation files
+			((AccessorLanguage)locale).setStorage(ImmutableMap.copyOf((Map)map)); // Update the storage of the current language file
 			//#else
-			((AccessorLanguage)locale).runAppendFrom(langfile);	// Append to the locale. This also uses vanilla patterns in the translation files
+//$$ 			((AccessorLanguage)locale).runAppendFrom(langfile);	// Append to the locale. This also uses vanilla patterns in the translation files
 			//#endif
 		}
 		//#if MC>=11601
-//$$ 		return locale;
+		return locale;
 		//#endif
 	}
 	
