@@ -8,6 +8,7 @@ archivesBaseName = "lotas"
 repositories {
 	maven { url 'https://maven.mgnet.work' }
 	maven { url 'https://jitpack.io' }
+    mavenCentral()
 }
 
 configurations {
@@ -17,8 +18,17 @@ configurations {
 
 dependencies {
 	implementation 'org.projectlombok:lombok:1.16.4'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
     include 'com.google.code.findbugs:annotations:3.0.1u2'
     modImplementation "net.fabricmc:fabric-loader:0.12.12"
+}
+
+tasks.matching { it.name == 'compileKotlin' || it.name == 'compileTestKotlin' }.configureEach {
+    def javaTarget = project.targetCompatibility.toString()
+    if (javaTarget == '8') {
+        javaTarget = '1.8'
+    }
+    kotlinOptions.jvmTarget = javaTarget
 }
 
 processResources {
@@ -43,8 +53,10 @@ if (project.name != 'fabric') {
     apply from: '../preprocessor.gradle'
 
     def preprocessedSrc = 'build/preprocessed/src'
+    def preprocessedKotlin = 'build/preprocessed/kotlin'
     def preprocessedRes = 'build/preprocessed/res'
     def originalSrc = '../../src/main/java'
+    def originalKotlin = '../../src/main/kotlin'
     def originalRes = '../../src/main/resources'
     def (major, minor, patch) = project.name.tokenize('.')
     def mcVersion = "${major}${minor.padLeft(2, '0')}${(patch ?: '').padLeft(2, '0')}"
@@ -52,6 +64,7 @@ if (project.name != 'fabric') {
 
     sourceSets {
         main.java.srcDir preprocessedSrc
+        main.kotlin.srcDir preprocessedKotlin
         main.resources.srcDir preprocessedRes
     }
 
@@ -71,6 +84,19 @@ if (project.name != 'fabric') {
         }
     }
 
+    task preprocessKotlin {
+        inputs.dir(originalKotlin)
+        outputs.dir(preprocessedKotlin)
+        onlyIf {
+            file(originalKotlin).exists()
+        }
+        doLast {
+            project.convertTree(vars, originalKotlin, preprocessedKotlin)
+        }
+    }
+
     compileJava.dependsOn preprocessJava
+    compileKotlin.dependsOn preprocessJava
+    compileKotlin.dependsOn preprocessKotlin
     processResources.dependsOn preprocessResources
 }

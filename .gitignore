@@ -16,5 +16,6 @@ _k/
 
 LoTAS-Forge/versions/*/*.launch
 *.launch
+*.jar
 LoTAS-Fabric/TODO.md
 TODO.md

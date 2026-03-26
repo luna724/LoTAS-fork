@@ -1,15 +1,16 @@
 plugins {
-	id 'fabric-loom' version '0.12-SNAPSHOT'
+	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'org.jetbrains.kotlin.jvm' version '1.6.21'
 }
 
 apply from: '../common.gradle'
 archivesBaseName = "LoTAS1.17.1"
 
-minecraft {
-	accessWidener '../../src/main/resources/lotas.accesswidener'
+loom {
+	accessWidenerPath = file("../../src/main/resources/lotas.accesswidener")
 }
 	
 dependencies {
 	minecraft "com.mojang:minecraft:1.17.1"
-	mappings minecraft.officialMojangMappings()
+	mappings loom.officialMojangMappings()
 }
