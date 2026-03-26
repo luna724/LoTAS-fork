@@ -231,7 +231,8 @@ public class AIManipMod {
 	}
 	
 	public static void save() {
-		File file=new File(Minecraft.getInstance().gameDirectory, "saves/"+MCVer.getCurrentWorldFolder()+"/aijobs.dat");
+		Minecraft mc = Minecraft.getInstance();
+		File file=new File(mc.gameDirectory, "saves/"+MCVer.getCurrentWorldFolder()+"/aijobs.dat");
 		List<String> aijobs=new ArrayList<>();
 		
 		if(jobQueue.isEmpty()&&file.exists()) {
@@ -253,7 +254,8 @@ public class AIManipMod {
 	}
 	
 	public static void read() {
-		File file=new File(Minecraft.getInstance().gameDirectory, "saves/"+MCVer.getCurrentWorldFolder()+"/aijobs.dat");
+		Minecraft mc = Minecraft.getInstance();
+		File file=new File(mc.gameDirectory, "saves/"+MCVer.getCurrentWorldFolder()+"/aijobs.dat");
 		if(!file.exists()) {
 			return;
 		}
@@ -318,8 +320,7 @@ public class AIManipMod {
 		}
 		
 		public AiJob(Mob entity, Vec3 target, Vec3 prevPos) {
-			this.entity = entity;
-			this.target=target;
+			this(entity, target);
 			this.prevPos=prevPos;
 		}
 
@@ -328,6 +329,9 @@ public class AIManipMod {
 		 * @return
 		 */
 		public boolean isFinished() {
+			if(target == null || entity == null) {
+				return true;
+			}
 			double distance=target.distanceTo(entity.position());
 			if (distance < 1) {
 				return true;
