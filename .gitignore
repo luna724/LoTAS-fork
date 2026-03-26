@@ -12,6 +12,9 @@ Private.java
 out/
 
 eclipse/
+_k/
 
 LoTAS-Forge/versions/*/*.launch
 *.launch
+LoTAS-Fabric/TODO.md
+TODO.md

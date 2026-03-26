@@ -1,0 +1,15 @@
+plugins {
+	id 'fabric-loom' version '0.12-SNAPSHOT'
+}
+
+apply from: '../common.gradle'
+archivesBaseName = "LoTAS1.17.1"
+
+minecraft {
+	accessWidener '../../src/main/resources/lotas.accesswidener'
+}
+	
+dependencies {
+	minecraft "com.mojang:minecraft:1.17.1"
+	mappings minecraft.officialMojangMappings()
+}
