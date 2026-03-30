@@ -27,7 +27,6 @@ import net.minecraft.resources.ResourceLocation;
  * @version v2.0
  */
 public class LoTASModContainer implements ModInitializer {
-
 	/** Texture for the Shield */
 	public static ResourceLocation shield;
 	/** The only info gui */

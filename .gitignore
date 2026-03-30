@@ -3,6 +3,7 @@
 .settings
 .classpath
 .project
+.apt_generated
 build
 bin
 run
@@ -17,5 +18,3 @@ _k/
 LoTAS-Forge/versions/*/*.launch
 *.launch
 *.jar
-LoTAS-Fabric/TODO.md
-TODO.md

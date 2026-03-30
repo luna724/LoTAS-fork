@@ -1,4 +1,27 @@
 accessWidener	v1	named
+
+# Player
+accessible    field    net/minecraft/world/entity/LivingEntity    attackStrengthTicker    I
+
+# Input
+accessible    field    net/minecraft/client/player/LocalPlayer    input    Lnet/minecraft/client/player/Input;
+accessible    field    net/minecraft/client/player/Input    up    Z
+accessible    field    net/minecraft/client/player/Input    left    Z
+accessible    field    net/minecraft/client/player/Input    down    Z
+accessible    field    net/minecraft/client/player/Input    right    Z
+
+
+# Options (GameSettings)
+accessible    field    net/minecraft/client/Minecraft    options    Lnet/minecraft/client/Options;
+accessible    field    net/minecraft/client/Options    keyUp    Lnet/minecraft/client/KeyMapping;
+accessible    field    net/minecraft/client/Options    keyLeft    Lnet/minecraft/client/KeyMapping;
+accessible    field    net/minecraft/client/Options    keyDown    Lnet/minecraft/client/KeyMapping;
+accessible    field    net/minecraft/client/Options    keyRight    Lnet/minecraft/client/KeyMapping;
+accessible    field    net/minecraft/client/Options    keySprint    Lnet/minecraft/client/KeyMapping;
+accessible    field    net/minecraft/client/Options    keyAttack    Lnet/minecraft/client/KeyMapping;
+accessible    field    net/minecraft/client/Options    keyUse    Lnet/minecraft/client/KeyMapping;
+
+# LoTAS Default
 ##if MC>=11500
 accessible    field    net/minecraft/client/Minecraft    window    Lcom/mojang/blaze3d/platform/Window;
 ##endif

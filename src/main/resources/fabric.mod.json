@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "de.pfannekuchen.lotas.core.LoTASModContainer"
+    ],
+    "client": [
+      "com.luna724.lotas.LoTASFork"
     ]
   },
   "mixins": [

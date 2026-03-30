@@ -100,7 +100,7 @@ public class SavestateMod {
 
 		File savestateDir = new File(savestatesDir, worldName + "-Savestate" + (existingSavestates + 1));
 		SaveAdditionalStateMod.Companion.onSaveState(
-				savestateDir, worldName, existingSavestates+1
+				savestateDir, existingSavestates+1
 		);
 
 		try {
@@ -218,6 +218,7 @@ public class SavestateMod {
 				motionY = Double.parseDouble(data.split(":")[1]);
 				motionZ = Double.parseDouble(data.split(":")[2]);
 				Timer.ticks = Integer.parseInt(data.split(":")[3]);
+				SaveAdditionalStateMod.Companion.onLoadState(existingSavestates);
 				applyVelocity = true;
 				TrackerFile.increaseLoadstates(savestatesDir, worldName);
 			}
@@ -264,7 +265,6 @@ public class SavestateMod {
 	}
 
 	public static class TrackerFile {
-
 		// This is the worst Code I have ever written.
 		public static int savestateCount = -1;
 		public static int loadstateCount = -1;
@@ -337,7 +337,6 @@ public class SavestateMod {
 		for (int j = i; j < existingSavestates + 1; j++) {
 			new File(savestatesDir, worldName + "-Savestate" + (j + 1)).renameTo(new File(savestatesDir, worldName + "-Savestate" + (j)));
 		}
-
 	}
 
 }

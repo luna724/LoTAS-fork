@@ -34,11 +34,11 @@ public abstract class MixinInGameHud {
 	//#endif
 		int xPos = (this.screenWidth / 2)-6;
         int yPos = this.screenHeight - 31 - 19;
-        
+
         //#if MC>=11700
-        RegistryUtils.applyRegistry(MCVer.stack, xPos, yPos, 0.3);
+        RegistryUtils.renderStaticPotion(MCVer.stack, xPos, yPos, 0.3);
         //#else
-        //$$ RegistryUtils.applyRegistry(null, xPos, yPos, 15);
+        //$$ RegistryUtils.renderStaticPotion(null, xPos, yPos, 15);
         //#endif
 	}
 }

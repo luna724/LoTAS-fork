@@ -18,6 +18,8 @@
     	"MixinMinecraftServer",
     	"MixinIntegratedServer",
     	"MixinOptions",
+		"MixinClientSound",
+		"MixinWindow",
     	"accessors.AccessorMinecraftClient",
     	"accessors.AccessorTimer",
     	"accessors.AccessorTextFieldWidget",

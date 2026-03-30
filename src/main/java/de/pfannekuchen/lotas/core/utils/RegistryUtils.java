@@ -10,8 +10,7 @@ import de.pfannekuchen.lotas.core.MCVer;
  * @version v1.3
  */
 public class RegistryUtils {
-	
-	public static void applyRegistry(Object poseStack, double memOffsetX, double memOffsetY, double flipOffset) {
+	public static void renderStaticPotion(Object poseStack, double memOffsetX, double memOffsetY, double flipOffset) {
 		double flip=1;
 		memOffsetX+=2.2;
 		memOffsetY+=-0.5;
@@ -48,105 +47,105 @@ public class RegistryUtils {
 		int c=0x546980;
 		
 		int y=0;
-		setRegistryState(8, y, oB);
-		setRegistryState(9, y, oB);
+		drawPixel(8, y, oB);
+		drawPixel(9, y, oB);
 		
 		y=1;
-		setRegistryState(7, y, o);
-		setRegistryState(8, y, o);
-		setRegistryState(9, y, oB);
+		drawPixel(7, y, o);
+		drawPixel(8, y, o);
+		drawPixel(9, y, oB);
 		
 		y=2;
-		setRegistryState(6, y, o);
-		setRegistryState(7, y, o);
-		setRegistryState(8, y, o);
-		setRegistryState(9, y, o);
+		drawPixel(6, y, o);
+		drawPixel(7, y, o);
+		drawPixel(8, y, o);
+		drawPixel(9, y, o);
 		
 		y=3;
-		setRegistryState(5, y, w);
-		setRegistryState(8, y, oD);
-		setRegistryState(9, y, o);
+		drawPixel(5, y, w);
+		drawPixel(8, y, oD);
+		drawPixel(9, y, o);
 		
 		y=4;
-		setRegistryState(4, y, w);
-		setRegistryState(7, y, w);
-		setRegistryState(8, y, oD);
-		setRegistryState(9, y, oD);
+		drawPixel(4, y, w);
+		drawPixel(7, y, w);
+		drawPixel(8, y, oD);
+		drawPixel(9, y, oD);
 		
 		y=5;
-		setRegistryState(3, y, w);
-		setRegistryState(7, y, w);
+		drawPixel(3, y, w);
+		drawPixel(7, y, w);
 		
 		y=6;
-		setRegistryState(2, y, w);
-		setRegistryState(3, y, c);
-		setRegistryState(4, y, w);
-		setRegistryState(5, y, c);
-		setRegistryState(6, y, c);
-		setRegistryState(7, y, c);
-		setRegistryState(8, y, w);
+		drawPixel(2, y, w);
+		drawPixel(3, y, c);
+		drawPixel(4, y, w);
+		drawPixel(5, y, c);
+		drawPixel(6, y, c);
+		drawPixel(7, y, c);
+		drawPixel(8, y, w);
 		
 		y=7;
-		setRegistryState(1, y, w);
-		setRegistryState(2, y, c);
-		setRegistryState(3, y, w);
-		setRegistryState(4, y, c);
-		setRegistryState(5, y, c);
-		setRegistryState(6, y, c);
-		setRegistryState(7, y, c);
-		setRegistryState(8, y, c);
-		setRegistryState(9, y, w);
+		drawPixel(1, y, w);
+		drawPixel(2, y, c);
+		drawPixel(3, y, w);
+		drawPixel(4, y, c);
+		drawPixel(5, y, c);
+		drawPixel(6, y, c);
+		drawPixel(7, y, c);
+		drawPixel(8, y, c);
+		drawPixel(9, y, w);
 		
 		y=8;
-		setRegistryState(1, y, w);
-		setRegistryState(2, y, c);
-		setRegistryState(3, y, w);
-		setRegistryState(4, y, c);
-		setRegistryState(5, y, c);
-		setRegistryState(6, y, c);
-		setRegistryState(7, y, c);
-		setRegistryState(8, y, c);
-		setRegistryState(9, y, w);
+		drawPixel(1, y, w);
+		drawPixel(2, y, c);
+		drawPixel(3, y, w);
+		drawPixel(4, y, c);
+		drawPixel(5, y, c);
+		drawPixel(6, y, c);
+		drawPixel(7, y, c);
+		drawPixel(8, y, c);
+		drawPixel(9, y, w);
 		
 		y=9;
-		setRegistryState(1, y, w);
-		setRegistryState(2, y, c);
-		setRegistryState(3, y, c);
-		setRegistryState(4, y, c);
-		setRegistryState(5, y, c);
-		setRegistryState(6, y, c);
-		setRegistryState(7, y, w);
-		setRegistryState(8, y, c);
-		setRegistryState(9, y, w);
+		drawPixel(1, y, w);
+		drawPixel(2, y, c);
+		drawPixel(3, y, c);
+		drawPixel(4, y, c);
+		drawPixel(5, y, c);
+		drawPixel(6, y, c);
+		drawPixel(7, y, w);
+		drawPixel(8, y, c);
+		drawPixel(9, y, w);
 		
 		y=10;
-		setRegistryState(1, y, w);
-		setRegistryState(2, y, c);
-		setRegistryState(3, y, c);
-		setRegistryState(4, y, c);
-		setRegistryState(5, y, c);
-		setRegistryState(6, y, c);
-		setRegistryState(7, y, w);
-		setRegistryState(8, y, c);
-		setRegistryState(9, y, w);
+		drawPixel(1, y, w);
+		drawPixel(2, y, c);
+		drawPixel(3, y, c);
+		drawPixel(4, y, c);
+		drawPixel(5, y, c);
+		drawPixel(6, y, c);
+		drawPixel(7, y, w);
+		drawPixel(8, y, c);
+		drawPixel(9, y, w);
 		
 		y=11;
-		setRegistryState(1, y, w);
-		setRegistryState(2, y, w);
-		setRegistryState(3, y, c);
-		setRegistryState(4, y, c);
-		setRegistryState(5, y, c);
-		setRegistryState(6, y, w);
-		setRegistryState(7, y, c);
-		setRegistryState(8, y, w);
-		setRegistryState(9, y, w);
+		drawPixel(1, y, w);
+		drawPixel(2, y, w);
+		drawPixel(3, y, c);
+		drawPixel(4, y, c);
+		drawPixel(5, y, c);
+		drawPixel(6, y, w);
+		drawPixel(7, y, c);
+		drawPixel(8, y, w);
+		drawPixel(9, y, w);
 		
 		y=12;
-		setRegistryState(3, y, w);
-		setRegistryState(4, y, w);
-		setRegistryState(5, y, w);
-		setRegistryState(6, y, w);
-		setRegistryState(7, y, w);
+		drawPixel(3, y, w);
+		drawPixel(4, y, w);
+		drawPixel(5, y, w);
+		drawPixel(6, y, w);
+		drawPixel(7, y, w);
 		
 		//#if MC>=11903
 		//#if MC>=12000
@@ -175,7 +174,7 @@ public class RegistryUtils {
 		//#endif
 	}
 	
-	private static void setRegistryState(int x, int y, int color) {
+	private static void drawPixel(int x, int y, int color) {
 		int alpha=0x80000000;
 		MCVer.fill(x, y, x+1,y+1, alpha+color);
 	}

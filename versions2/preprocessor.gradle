@@ -23,7 +23,19 @@ static def evalExpr(vars, String expr) {
 }
 
 static def getIndent(String str) {
-    return str.takeWhile {it == ' '}.length()
+    return str.takeWhile { it == ' ' || it == '\t' }.length()
+}
+
+static def getIndentWidth(String str, int tabWidth = 4) {
+    def width = 0
+    str.takeWhile { it == ' ' || it == '\t' }.each { ch ->
+        if (ch == ' ') {
+            width++
+        } else {
+            width += tabWidth - (width % tabWidth)
+        }
+    }
+    return width
 }
 
 class ParserException extends RuntimeException {
@@ -44,7 +56,7 @@ static def convertSource(Map<String, String> kws, Map<String, Integer> vars, Lis
             def result = evalExpr(vars, trimmed.substring(kws.if.length()))
             ifStack.push(result)
             if (result != null) {
-                indentStack.push(getIndent(line))
+                indentStack.push(getIndentWidth(line))
                 active &= result
             }
         } else if (trimmed.startsWith(kws.else)) {
@@ -55,7 +67,7 @@ static def convertSource(Map<String, String> kws, Map<String, Integer> vars, Lis
             if (head != null) {
                 head = !head
                 indentStack.pop()
-                indentStack.push(getIndent(line))
+                indentStack.push(getIndentWidth(line))
             }
             ifStack.push(head)
             active = true;
@@ -91,12 +103,10 @@ static def convertSource(Map<String, String> kws, Map<String, Integer> vars, Lis
             } else {
                 def currIndent = indentStack.last()
                 if (trimmed.isEmpty()) {
-                    line = ' ' * currIndent + kws.eval
+                    line = line.substring(0, getIndent(line)) + kws.eval
                 } else if (!trimmed.startsWith(kws.eval)) {
                     def actualIndent = getIndent(line)
-                    if (currIndent <= actualIndent) {
-                        line = ' ' * currIndent + kws.eval + ' ' + line.substring(currIndent)
-                    }
+                    line = line.substring(0, actualIndent) + kws.eval + ' ' + line.substring(actualIndent)
                 }
             }
         }
@@ -132,7 +142,7 @@ static def convertFile(Map<String, String> kws, Map<String, Integer> vars, File 
 project.ext.convertTree = { Map<String, Integer> vars, String inName, String outName=inName ->
     def defaultKws = [if: '//#if ', ifdef: '//#ifdef ', else: '//#else', endif: '//#endif', eval: '//$$']
     def cfgKws = [if: '##if ', ifdef: '##ifdef ', else: '##else', endif: '##endif', eval: '#$$']
-    def extensions = ['.java': defaultKws, '.kt': defaultKws, '.gradle': defaultKws, '.json': defaultKws, '.cfg': cfgKws]
+    def extensions = ['.java': defaultKws, '.kt': defaultKws, '.gradle': defaultKws, '.json': defaultKws, '.cfg': cfgKws, '.accesswidener': cfgKws]
     def inPath = project.file(inName).toPath()
     def outPath = project.file(outName).toPath()
     def inPlace = inPath.toAbsolutePath().equals(outPath.toAbsolutePath())
